@@ -30,3 +30,14 @@ int fib3(int n) {
     }
     return j;
 }
+
+void test(){
+    int n=10;
+    for(int i =0;i<n;i++)       {
+            printf("%d\t",i+1);
+            printf("%d\t",fib1(i+1));
+            printf("%d\t",fib2(i+1));
+            printf("%d\n",fib3(i+1));
+
+        }
+    }
