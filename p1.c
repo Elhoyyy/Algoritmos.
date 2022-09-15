@@ -43,11 +43,14 @@ void test(){
     int n=10;
     printf("\n");
     for(int i =0;i<n;i++){
+        if(i==0){
+            printf("|N|\t|FIB1|\t|FIB2|\t|FIB3|\n");
+        }
 
-        printf("%d\t",i+1);
-        printf("%d\t",fib1(i+1));
-        printf("%d\t",fib2(i+2));
-        printf("%d\n",fib3(i+1));
+        printf("|%d|\t",i+1);
+        printf("|%d|\t",fib1(i+1));
+        printf("|%d|\t",fib2(i+2));
+        printf("|%d|\n",fib3(i+1));
 
     }
 }
