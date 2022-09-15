@@ -24,7 +24,7 @@ int fib2(int n){
 }
 
 int fib3(int n) {
-    int i = 1, j = 0, k = 0, h = 1, t = 0;
+    int i = 1, j = 0, k = 0, h = 1, t;
     while (n > 0) {
         if (n % 2 == 1) {
             t = j * h;
