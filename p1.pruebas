@@ -33,31 +33,6 @@ int main (){
     }
     return 0;
 }
-/*
-leer_tiempo (ta);
-repetir K veces:
-alg(n);
-leer_tiempo (tb)
-
-
-inicializar(vector);
-leer_tiempo (ta); alg(vector); leer_tiempo (tb);
-t:=tb-ta;
-si (t < 500) entonces { % ‘‘umbral de confianza’’
-leer_tiempo (ta);
-repetir K veces: {
-inicializar(vector); alg(vector)
-};
-leer_tiempo (tb);
-t1:=tb-ta; % deber´ıa estar por encima de 500!
-leer_tiempo (ta);
-repetir K veces: % debe ser la misma constante K
-inicializar(vector);
-leer_tiempo (tb);
-t2:=tb-ta;
-t:=(t1-t2)/K
-}
-*/
 
 int fib1(int n) {
     if (n < 2) {
@@ -102,17 +77,51 @@ void test(){
 
         printf("|%d|\t",i+1);
         printf("|%d|\t",fib1(i+1));
-        printf("|%d|\t",fib2(i+2));
+        printf("|%d|\t",fib2(i+1));
         printf("|%d|\n",fib3(i+1));
 
     }
 }
+/*
+leer_tiempo (ta);
+repetir K veces:
+alg(n);
+leer_tiempo (tb)
+
+
+inicializar(vector);
+leer_tiempo (ta); alg(vector); leer_tiempo (tb);
+t:=tb-ta;
+si (t < 500) entonces { % ‘‘umbral de confianza’’
+leer_tiempo (ta);
+repetir K veces: {
+inicializar(vector); alg(vector)
+};
+leer_tiempo (tb);
+t1:=tb-ta; % deber´ıa estar por encima de 500!
+leer_tiempo (ta);
+repetir K veces: % debe ser la misma constante K
+inicializar(vector);
+leer_tiempo (tb);
+t2:=tb-ta;
+t:=(t1-t2)/K
+}
+*/
 void print_resultf3(int n){
 double t1, t2, t, x, y, z;
-t1 = microsegundos();
-fib3(n);
-t2 = microsegundos();
-t = t2-t1;
+int k=100;
+    t1=microsegundos();
+    fib3(n);
+    t2=microsegundos();
+    t=t2-t1;
+    if (t < 500){
+        t1=microsegundos();
+        for(int i=0;i<k;i++){
+        fib3(n);
+        }
+        t2=microsegundos();
+        t=(t2-t1)/k;
+    }
 x = t / sqrt(log(n));
 y = t / log(n);
 z = t / pow(n, 0.5);
@@ -121,10 +130,19 @@ printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 void print_resultf2(int n){
     double t1, t2, t, x, y, z;
+    int k=100;
     t1 = microsegundos();
     fib2(n);
     t2 = microsegundos();
     t = t2-t1;
+    if (t < 500){
+        t1=microsegundos();
+        for(int i=0;i<k;i++){
+            fib3(n);
+        }
+        t2=microsegundos();
+        t=(t2-t1)/k;
+    }
     x = t / n;
     y = t / pow(n,0.8);
     z = t / n*log(n);
@@ -133,11 +151,20 @@ void print_resultf2(int n){
 
 void print_resultf1(int n){
     double t1, t2, t, x, y, z,o;
+    int k=100;
     o=(1+sqrt(5))/2;
     t1 = microsegundos();
     fib1(n);
     t2 = microsegundos();
     t = t2-t1;
+    if (t < 500){
+        t1=microsegundos();
+        for(int i=0;i<k;i++){
+            fib3(n);
+        }
+        t2=microsegundos();
+        t=(t2-t1)/k;
+    }
     x = t / o;
     y = t / pow(1.1,n);
     z = t / pow(2,n);
