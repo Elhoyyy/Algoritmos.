@@ -1,14 +1,11 @@
  #include <stdio.h>
 #include <math.h>
 #include <sys/time.h>
-/* obtiene la hora actual en microsegundos */
-double microsegundos() {
-    struct timeval t;
-    if (gettimeofday(&t, NULL) < 0 )
-        return 0.0;
-    return (t.tv_usec + t.tv_sec * 1000000.0);
-}
+double microsegundos();
 void test();
+int fib1(int n);
+int fib2(int n);
+int fib3(int n);
 void print_resultf1(int n);
 void print_resultf2(int n);
 void print_resultf3(int n);
@@ -82,31 +79,6 @@ void test(){
 
     }
 }
-/*
-leer_tiempo (ta);
-repetir K veces:
-alg(n);
-leer_tiempo (tb)
-
-
-inicializar(vector);
-leer_tiempo (ta); alg(vector); leer_tiempo (tb);
-t:=tb-ta;
-si (t < 500) entonces { % ‘‘umbral de confianza’’
-leer_tiempo (ta);
-repetir K veces: {
-inicializar(vector); alg(vector)
-};
-leer_tiempo (tb);
-t1:=tb-ta; % deber´ıa estar por encima de 500!
-leer_tiempo (ta);
-repetir K veces: % debe ser la misma constante K
-inicializar(vector);
-leer_tiempo (tb);
-t2:=tb-ta;
-t:=(t1-t2)/K
-}
-*/
 void print_resultf3(int n){
 double t1, t2, t, x, y, z;
 int k=100;
@@ -171,3 +143,9 @@ void print_resultf1(int n){
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 }
 
+double microsegundos() {
+    struct timeval t;
+    if (gettimeofday(&t, NULL) < 0 )
+        return 0.0;
+    return (t.tv_usec + t.tv_sec * 1000000.0);
+}
