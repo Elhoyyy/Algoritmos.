@@ -143,4 +143,4 @@ void print_resultf1(int n){
     z = t / pow(2,n);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 }
-*7
+*/
