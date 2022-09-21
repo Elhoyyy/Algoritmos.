@@ -120,8 +120,8 @@ void print_resultf2(int n){
         t2=microsegundos();
         t=(t2-t1)/k;
     }
-    x = t / n;
-    y = t / pow(n,0.8);
+    x = t / pow(n,0.8);
+    y = t / n;
     z = t / n*log(n);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 }
@@ -142,8 +142,8 @@ void print_resultf1(int n){
         t2=microsegundos();
         t=(t2-t1)/k;
     }
-    x = t / o;
-    y = t / pow(1.1,n);
+    x = t / pow(1.1,n);
+    y = t / o;
     z = t / pow(2,n);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 }
