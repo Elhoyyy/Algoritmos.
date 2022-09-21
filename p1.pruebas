@@ -14,7 +14,7 @@ int main (){
     printf("\n\n");
 
     int n1=2;
-    printf("\t   n\t      t(n)\t  t(n)/1.1^n\t t(n)/o^n\tt(n)/2^n\t\n");
+    printf("\t   n\t      t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
     for(int i=0;i<5;i++){
         print_resultf1(n1);
         n1=n1*2;
