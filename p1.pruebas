@@ -14,21 +14,21 @@ int main (){
     printf("\n\n");
 
     int n1=2;
-    printf("\t   n\t      t(n)\t  t(n)/n^1.8\t t(n)/n^2\tt(n)/n^2.2\t\n");
+    printf("\t   n\t      t(n)\t  t(n)/1.1^n\t t(n)/o^n\tt(n)/2^n\t\n");
     for(int i=0;i<5;i++){
         print_resultf1(n1);
         n1=n1*2;
     }
     printf("\n");
     int n2=1000;
-    printf("\t   n\t      t(n)\t  t(n)/n^1.8\t t(n)/n^2\tt(n)/n^2.2\t\n");
+    printf("\t   n\t      t(n)\t  t(n)/n^0.8\t t(n)/n\tt(n)/nlog(n)\t\n");
     for(int i=0;i<5;i++){
         print_resultf2(n2);
         n2=n2*10;
     }
     printf("\n");
     int n3=1000;
-    printf("\t   n\t      t(n)\t  t(n)/n^1.8\t t(n)/n^2\tt(n)/n^2.2\t\n");
+    printf("\t   n\t      t(n)\t  t(n)/sqrt(log(n))\t t(n)/log(n)\tt(n)/n^0.5\t\n");
     for(int i=0;i<5;i++){
         print_resultf3(n3);
         n3=n3*10;
