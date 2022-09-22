@@ -103,4 +103,7 @@ aproximación al valor 0.0082..-, f(n) la cota subestimada con su tendencia a n�
 h(n) la cota sobreestimada con su aproximación al valor 0.
 
 Conclusión:
-Podemos concluir con que de entre los 3 algoritmos el mejor es el tercero(FIB3) debido a su complejidad computacional, siendo esta de log(n) que es menor que n(o n^1) y a su vez que φ^n, siendo φ=(1+sqrt(5))/2). De entre estos dos últimos acabaríamos confirmando que tiene menor complejidad n^1 siendo FIB3 el mejor algoritmo y FIB1 el peor.
+Podemos concluir con que de entre los 3 algoritmos el mejor es el tercero(FIB3) debido a su
+complejidad computacional, siendo esta de log(n) que es menor que n(o n^1) y a su vez que φ^n,
+siendo φ=(1+sqrt(5))/2). De entre estos dos últimos acabaríamos confirmando que tiene menor
+complejidad n^1 siendo FIB3 el mejor algoritmo y FIB1 el peor.
