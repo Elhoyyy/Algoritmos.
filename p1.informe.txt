@@ -39,7 +39,7 @@ Los tiempos están medidos en milisegundos.
 En el caso de los tiempos fueran menores de 500 milisegundos se ejecutó (para
 la variable n) 1000 veces el algoritmo. Marcando con un asterisco los tiempos medidos con este método.
 
-	-fib1
+	-FIB1
 	Donde:
 	
 	f(n)= 1.1^n
@@ -62,11 +62,10 @@ la variable n) 1000 veces el algoritmo. Marcando con un asterisco los tiempos me
 	g(n) es la cota ajustada debido a que si aumentamos el valor de n, t(n)/g(n) tiende a una constante es igual a 
 	Y h(n) la cota sobreestimada porque cuando n tiende a ∞, t(n)/g(n) tiende a 0.
 
-	-fib2
+	-FIB2
 
 	Donde:
 	
-	t(n)= es el tiempo de ejecución en milisegundos
 	f(n)= 0.8^n
 	g(n)= n
 	h(n)= n*log(n)
@@ -91,11 +90,10 @@ la variable n) 1000 veces el algoritmo. Marcando con un asterisco los tiempos me
 	Y h(n) es la cota sobrestimada.
 
 
-	-fib3
+	-FIB3
 
 	Donde:
 	
-	t(n)= es el tiempo de ejecución en milisegundos
 	f(n)= sqrt(log(n))
 	g(n)= log(n)RD
 	h(n)= n^0.5
