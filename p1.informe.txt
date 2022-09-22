@@ -95,7 +95,7 @@ la variable n) 1000 veces el algoritmo. Marcando con un asterisco los tiempos me
 	Donde:
 	
 	f(n)= sqrt(log(n))
-	g(n)= log(n)RD
+	g(n)= log(n)
 	h(n)= n^0.5
 
 	n		t(n)	t(n)/f(n)	t(n)/g(n)	t(n)/h(n)
