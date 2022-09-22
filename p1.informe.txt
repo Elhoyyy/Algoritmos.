@@ -1,0 +1,119 @@
+Introducion:
+En esta práctica estudiaremos el tiempo de ejecución y realizaremos una compraobación empírica
+de la complejidad teórica de tres algoritmos que realizan la sucesion de Fibonacci.
+Características de la maquina:
+
+
+Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el dispositivo con las siguientes características:
+-Una máquina con un: AMD Ryzen 7 5800H with Radeon Graphics 3.20 GHz. (16 CPUS)
+
+-Una memoria RAM de 16Gb.
+
+-En la version 22.04.1 de 64 bits de Ubuntu.
+
+-Kernel: 5.15.0-47-generic
+
+
+Test:
+Creamos una función test para comprobar que los 3 algoritmos funcionan correctamente y así poder medir sus tiempo de ejecución.
+Siendo sus resultados:
+
+	|N|             |FIB1|          |FIB2|          |FIB3|
+         1               1               1               1
+         2               1               1               1
+         3               2               2               2
+         4               3               3               3
+         5               5               5               5
+         6               8               8               8
+         7               13              13              13
+         8               21              21              21
+         9               34              34              34
+         10              55              55              55
+
+
+Verificacion empírica:
+En este apartado calcularemos el tiempo de ejecución de los diferentes algorítmos y
+realizaremos una comprobación empírica de la complejidad.
+
+Los tiempos están medidos en milisegundos.
+En el caso de los tiempos fueran menores de 500 milisegundos se ejecutaron, para
+la variable n, 1000 veces. Poniendo en negrita 
+
+	-fib1
+	Donde:
+	
+	f(n)= 1.1^n
+	g(n)= φ^n, siendo φ=(1+sqrt(5))/2
+	h(n)= 2^n
+
+	n		t(n)	t(n)/f(n)	t(n)/g(n)	t(n)/h(n)	 
+	          
+	2		
+
+	4
+
+	8
+
+	16
+
+	32
+
+	Siendo f(n) la cota subestimada porque cuando n tiende a OO, t(n)/f(n) también lo hace. 
+	g(n) es la cota ajustada debido a que si aumentamos el valor de n, t(n)/g(n) tiende a una constante es igual a 
+	Y h(n) la cota sobreestimada porque cuando n tiende a ∞, t(n)/g(n) tiende a 0.
+
+	-fib2
+
+	Donde:
+	
+	t(n)= es el tiempo de ejecución en milisegundos
+	f(n)= 0.8^n
+	g(n)= n
+	h(n)= n*log(n)
+
+	n		t(n)	t(n)/f(n)	t(n)/g(n)	t(n)/h(n)
+
+	1000	
+
+	10000
+
+	100000
+
+	1000000
+
+	10000000
+
+	Siguiendo las explicaciones del anterior algoritmo para la determinación de las cotas,
+	que también usaremos para el tercer algoritmo, podemos determinar:
+	
+	f(n) es la cota subestimdada.
+	g(n) es la cota ajustada cuya constante es igual a
+	Y h(n) es la cota sobrestimada.
+
+
+	-fib3
+
+	Donde:
+	
+	t(n)= es el tiempo de ejecución en milisegundos
+	f(n)= sqrt(log(n))
+	g(n)= log(n)RD
+	h(n)= n^0.5
+
+	n		t(n)	t(n)/f(n)	t(n)/g(n)	t(n)/h(n)
+
+	1000	
+
+	10000
+
+	100000
+
+	1000000
+
+	10000000
+
+	f(n) sería la cota subestimada
+	g(n) sería la cota ajustada que tiende a la constante                     		
+	h(n) sería la cota sobrestimada
+
+Conclusión:
