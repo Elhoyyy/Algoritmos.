@@ -1,3 +1,11 @@
+
+TITULOAlgoritmos Práctica 1
+AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
+AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
+GROUP: 1.1
+DATE: 22/09/2022
+
+
 #include <stdio.h>
 #include <math.h>
 #include <sys/time.h>
