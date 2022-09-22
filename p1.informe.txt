@@ -36,8 +36,8 @@ En este apartado calcularemos el tiempo de ejecución de los diferentes algorít
 realizaremos una comprobación empírica de la complejidad.
 
 Los tiempos están medidos en milisegundos.
-En el caso de los tiempos fueran menores de 500 milisegundos se ejecutaron, para
-la variable n, 1000 veces. Poniendo en negrita 
+En el caso de los tiempos fueran menores de 500 milisegundos se ejecutó (para
+la variable n) 1000 veces el algoritmo. Marcando con un asterisco los tiempos medidos con este método.
 
 	-fib1
 	Donde:
