@@ -20,7 +20,7 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 En esta práctica estudiaremos el tiempo de ejecución y realizaremos una comprabación empírica
 de la complejidad teórica de tres algoritmos que realizan la sucesion de Fibonacci.
 
-Creamos una función test con un máximo de 12 elementos para comprobar que los 3 algoritmos 
+Creamos una función test con un máximo de 10 elementos para comprobar que los 3 algoritmos 
 funcionan correctamente (tienen los mismos resultados) y así poder medir seguidamente sus tiempo de ejecución.
 La tabla de la función test nos quedaría de la siguiente manera:
 
