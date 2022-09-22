@@ -1,22 +1,27 @@
-Introducion:
-En esta práctica estudiaremos el tiempo de ejecución y realizaremos una compraobación empírica
-de la complejidad teórica de tres algoritmos que realizan la sucesion de Fibonacci.
+TITULO:
+Algoritmos Práctica 1
+AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
+AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
+GROUP: 1.1
+DATE: 22/09/2022
+
 Características de la maquina:
-
-
 Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el dispositivo con las siguientes características:
--Una máquina con un: AMD Ryzen 7 5800H with Radeon Graphics 3.20 GHz. (16 CPUS)
 
--Una memoria RAM de 16Gb.
+-Procesador: AMD Ryzen 7 5800H with Radeon Graphics 3.20 GHz. (16 CPUS)
 
--En la version 22.04.1 de 64 bits de Ubuntu.
+-Memoria RAM de 16Gb.
+
+-Version 22.04.1 de 64 bits de Ubuntu.
 
 -Kernel: 5.15.0-47-generic
 
 
-Test:
-Creamos una función test para comprobar que los 3 algoritmos funcionan correctamente y así poder medir sus tiempo de ejecución.
-Siendo sus resultados:
+En esta práctica estudiaremos el tiempo de ejecución y realizaremos una comprabación empírica
+de la complejidad teórica de tres algoritmos que realizan la sucesion de Fibonacci.
+
+Creamos una función test con un máximo de 12 elementos para comprobar que los 3 algoritmos funcionan correctamente (tienen los mismos resultados) y así poder medir seguidamente sus tiempo de ejecución.
+La tabla de la función test nos quedaría de la siguiente manera:
 
 	|N|             |FIB1|          |FIB2|          |FIB3|
          1               1               1               1
@@ -32,86 +37,60 @@ Siendo sus resultados:
 
 
 Verificacion empírica:
-En este apartado calcularemos el tiempo de ejecución de los diferentes algorítmos y
-realizaremos una comprobación empírica de la complejidad.
+En este apartado calcularemos el tiempo de ejecución de los diferentes algorítmos y gracias a las tablas con los distintos tiempos de ejecución de cada función realizaremos una comprobación empírica de la complejidad gracias al uso de la cota sobreestimada y subestimada 
 
 Los tiempos están medidos en milisegundos.
 En el caso de los tiempos fueran menores de 500 milisegundos se ejecutó (para
-la variable n) 1000 veces el algoritmo. Marcando con un asterisco los tiempos medidos con este método.
+la variable n) la función 1000 veces, marcando dichos tiempos con un apóstrofe (*).
 
-	-FIB1
-	Donde:
+	Tabla de FIB1:
+
+	      n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
+(*)           2          0.006       0.004959       0.002292       0.001500
+(*)           4          0.017       0.011611       0.002480       0.001063
+(*)           8          0.129       0.060179       0.002746       0.000504
+(*)          16          6.239       1.357788       0.002827       0.000095
+(*)          32      13784.000     652.843883       0.002830       0.000003
+
+Donde:
+n es el número de interaciones que realiza el bucle. (Es en las demás funciones igual)
+t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
+Cota subestimada: f(n)= 1.1^n
+Cota sobreestimada: g(n)= φ^n, siendo φ=(1+sqrt(5))/2)
+Cota ajustada: h(n)= 2^n
 	
-	f(n)= 1.1^n
-	g(n)= φ^n, siendo φ=(1+sqrt(5))/2
-	h(n)= 2^n
+Siendo f(n) la cota subestimada porque cuando n tiende a OO, t(n)/f(n) también lo hace, es decir, es creciente mientras que en la cota sobreestimada es decreciente ya que cuando n aumenta t(n)/g(n) tiende a 0. g(n) es la cota ajustada debido a que si aumentamos el valor de n, t(n)/g(n) tiende a una constante que en este caso se aproxima al valor de 0.0028..-
 
-	n		t(n)	t(n)/f(n)	t(n)/g(n)	t(n)/h(n)	 
-	          
-	2		
+	Tabla de FIB2:
+	      n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
+(*)        1000          2.770       0.011028       0.002770       0.000401
+(*)       10000         27.754       0.017512       0.002775       0.000301
+(*)      100000        277.605       0.027760       0.002776       0.000241
+        1000000       2776.000       0.043997       0.002776       0.000201
+       10000000      27756.000       0.069720       0.002776       0.000172
+Donde:
+Cota subestimada: f(n)= 0.8^n
+Cota ajustada: g(n)= n
+Cota ajustada: h(n)= n*log(n)
 
-	4
-
-	8
-
-	16
-
-	32
-
-	Siendo f(n) la cota subestimada porque cuando n tiende a OO, t(n)/f(n) también lo hace. 
-	g(n) es la cota ajustada debido a que si aumentamos el valor de n, t(n)/g(n) tiende a una constante es igual a 
-	Y h(n) la cota sobreestimada porque cuando n tiende a ∞, t(n)/g(n) tiende a 0.
-
-	-FIB2
-
-	Donde:
-	
-	f(n)= 0.8^n
-	g(n)= n
-	h(n)= n*log(n)
-
-	n		t(n)	t(n)/f(n)	t(n)/g(n)	t(n)/h(n)
-
-	1000	
-
-	10000
-
-	100000
-
-	1000000
-
-	10000000
-
-	Siguiendo las explicaciones del anterior algoritmo para la determinación de las cotas,
-	que también usaremos para el tercer algoritmo, podemos determinar:
-	
-	f(n) es la cota subestimdada.
-	g(n) es la cota ajustada cuya constante es igual a
-	Y h(n) es la cota sobrestimada.
+	Siguiendo las explicaciones del anterior algoritmo (que también se aplicarán al tercer) para la determinación de las cotas, podemos determinar que f(n) es la cota subestimada (aproximandose a valor infinitos a la vez que n), g(n) es la cota ajustada cuya constante se aproxima de manera estable al 0.00277..- y  h(n) es la cota sobrestimada (aproximandose al valor 0 al contrario que n).
 
 
-	-FIB3
+	TABLA DE FIB3:
 
-	Donde:
-	
-	f(n)= sqrt(log(n))
-	g(n)= log(n)
-	h(n)= n^0.5
+(*)	      n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
+(*)        1000          0.054       0.020546       0.007817       0.001708
+(*)       10000          0.073       0.024054       0.007926       0.000730
+(*)      100000          0.104       0.030651       0.009033       0.000329
+(*)     1000000          0.119       0.032016       0.008614       0.000119
+(*)    10000000          0.133       0.033128       0.008252       0.000042
 
-	n		t(n)	t(n)/f(n)	t(n)/g(n)	t(n)/h(n)
+Donde:
+Cota subestimada: f(n)= sqrt(log(n))
+Cota ajustada: g(n)= log(n)
+Cota sobreestimada: h(n)= n^0.5
 
-	1000	
-
-	10000
-
-	100000
-
-	1000000
-
-	10000000
-
-	f(n) sería la cota subestimada
-	g(n) sería la cota ajustada que tiende a la constante                     		
-	h(n) sería la cota sobrestimada
+	Ocurre igual que en los anteriores casos siendo en la cota ajustada g(n) con su aproximación al valor 0.0082..-, f(n) la cota subestimada con su tendencia a números mayores y h(n) la cota sobreestimada con su aproximación al valor 0.
 
 Conclusión:
+Podemos concluir con que de entre los 3 algoritmos el mejor es el segundo(FIB2) debido a su complejidad computacional, siendo esta de n^1 que es menor que log(n) y φ^n, siendo φ=(1+sqrt(5))/2). De entre estos dos últimos acabaríamos confirmando que tiene menor complejidad log(n)
