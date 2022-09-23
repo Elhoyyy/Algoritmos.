@@ -1,10 +1,10 @@
-
-TITULOAlgoritmos Práctica 1
+/*
+TITULO: Algoritmos Práctica 1
 AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
 AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
 GROUP: 1.1
 DATE: 22/09/2022
-
+*/
 
 #include <stdio.h>
 #include <math.h>
@@ -19,26 +19,26 @@ void print_resultf2(int n);
 void print_resultf3(int n);
 int main (){
     test();
-    
-    
+
+
     printf("\n\n");
     int n1=2;
-    printf("\t   n\t      t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
+    printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
     for(int i=0;i<5;i++){
         print_resultf1(n1);
         n1=n1*2;
     }
     printf("\n");
     int n2=1000;
-    printf("\t   n\t      t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
+    printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
     for(int i=0;i<5;i++){
         print_resultf2(n2);
         n2=n2*10;
     }
     printf("\n");
     int n3=1000;
-   
-    printf("\t   n\t      t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
+
+    printf("\t      n\t         t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
     for(int i=0;i<5;i++){
         print_resultf3(n3);
         n3=n3*10;
@@ -108,6 +108,10 @@ void print_resultf3(int n){
         }
         t2=microsegundos();
         t=(t2-t1)/k;
+        printf("(*)");
+
+    }else{
+        printf("   ");
     }
     x = t / sqrt(log(n));
     y = t / log(n);
@@ -129,7 +133,10 @@ void print_resultf2(int n){
         }
         t2=microsegundos();
         t=(t2-t1)/k;
-    }
+        printf("(*)");
+    } else{
+printf("   ");
+}
     x = t / pow(n,0.8);
     y = t / n;
     z = t / (n*log(n));
@@ -151,6 +158,10 @@ void print_resultf1(int n){
         }
         t2=microsegundos();
         t=(t2-t1)/k;
+        printf("(*)");
+
+    }else{
+        printf("   ");
     }
     x = t / pow(1.1,n);
     y = t / pow(o,n);
@@ -164,4 +175,3 @@ double microsegundos() {
         return 0.0;
     return (t.tv_usec + t.tv_sec * 1000000.0);
 }
-
