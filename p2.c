@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <time.h>
+#include <sys/time.h>
+#include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
 void inicializar_semilla();
@@ -7,7 +9,10 @@ void ord_ins(int v[], int n);
 void aleatorio(int v [], int n);
 void ascendente(int v [], int n);
 void descendente(int v [], int n);
-bool test (int v[], int n);
+void test ();
+void print_result_aleatorio(int n);
+void print_result_ascendente(int n);
+void print_result_descendente(int n);
 
 
 
@@ -25,22 +30,28 @@ void ord_ins(int v[], int n){
 }
 
 int main(){
-    int i;
+    int n1=500,n2=500,n3=500,i;
     inicializar_semilla();
-    //int size=sizeof vector/sizeof vector[5];
-    int val[10];
-    aleatorio(val, 10);
-    for(i=0;i<10; i++){
-        printf(" %d ", val[i]);
-    }
+    test();
     printf("\n\n");
-    ord_ins(val, 10);
-    for(i=0;i<10; i++){
-        printf(" %d ", val[i]);
+    printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
+    for( i=0;i<10;i++){
+        print_result_aleatorio(n1);
+        n1=n1*2;
     }
-    printf("\n\n");
+    printf("\n");
+    printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
+    for( i=0;i<10;i++){
+        print_result_ascendente(n2);
+        n2=n2*2;
+    }
+    printf("\n");
 
-    test(val, 10);
+    printf("\t      n\t         t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
+    for( i=0;i<10;i++){
+        print_result_descendente(n3);
+        n3=n3*2;
+    }
     return 0;
 };
 
@@ -58,24 +69,119 @@ void ascendente(int v [], int n) {
         v[i] = i;
 }
 void descendente(int v[], int n){
-    int i;
-    for(i=n; i>0; i--){
-        v[i]=i;
+    int i,j=0;
+    for(i=10; i>0; i--){
+        v[j]=i;
+        j++;
     }
 }
-bool test (int v[], int n){
-    int i=0, j=1;
-    bool check=true;
-    while(j<=n){
-        if(v[i]>v[j]){
-            check =false;
-            printf("FALSEO JHEEEEJE");
-            return check;
+void test (){
+    int v1[10],v2[17],i;
+    descendente(v1, 11); //Inicializo el vector con elementos desecendentes.
+    printf("\nOrdenacion por insercion con inicializacion descendente: \n");
+    for(i=0;i<10; i++){
+        printf(" %d ", v1[i]);
+    }
+    printf("\n");
+    printf("Vector ordenado: \n");
+    ord_ins(v1, 10);
+    for(i=0;i<10; i++){
+        printf(" %d ", v1[i]);
+    }
+    printf("\n\n");
+    aleatorio(v2, 17);
+    printf("Ordenacion por insercion con inicializacion aleatoria:\n");
+    for(i=0; i<17; i++){
+        printf(" %d ", v2[i]);
+    }
+    printf("\n");
+    ord_ins(v2, 17);
+    printf("Vector ordenado.\n ");
+    for(i=0; i<17; i++){
+        printf(" %d ", v2[i]);
+    }
+    printf("\n\n");
+
+}
+
+
+double microsegundos() {
+    struct timeval t;
+    if (gettimeofday(&t, NULL) < 0 )
+        return 0.0;
+    return (t.tv_usec + t.tv_sec * 1000000.0);
+}
+
+void print_result_aleatorio(int n){
+    double t1, t2, t, x, y, z;
+    int k=1000;
+    t1=microsegundos();
+    t2=microsegundos();
+    t=t2-t1;
+    if (t < 500){
+        t1=microsegundos();
+        for(int i=0;i<k;i++){
+
         }
-        i++,j++;
+        t2=microsegundos();
+        t=(t2-t1)/k;
+        printf("(*)");
 
+    }else{
+        printf("   ");
     }
-    printf("CORRECTOR JAJEHEJEAEH");
-    return check;
+    //x =;
+    y = t/ pow(n,2);
+    //z =;
+    printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
+}
+
+void print_result_ascendente(int n){
+    double t1, t2, t, x, y, z;
+    int k=1000;
+    t1=microsegundos();
+    t2=microsegundos();
+    t=t2-t1;
+    if (t < 500){
+        t1=microsegundos();
+        for(int i=0;i<k;i++){
+
+        }
+        t2=microsegundos();
+        t=(t2-t1)/k;
+        printf("(*)");
+
+    }else{
+        printf("   ");
+    }
+    //x =;
+    y = t/ pow(n,2);
+    //z =;
+    printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
+}
+
+void print_result_descendente(int n){
+    double t1, t2, t, x, y, z;
+    int k=1000;
+    t1=microsegundos();
+    t2=microsegundos();
+    t=t2-t1;
+    if (t < 500){
+        t1=microsegundos();
+        for(int i=0;i<k;i++){
+
+        }
+        t2=microsegundos();
+        t=(t2-t1)/k;
+        printf("(*)");
+
+    }else{
+        printf("   ");
+    }
+    //x = t/n ;
+    y =t/ pow(n,2);
+    //z =t / pow (n,2);
+    printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
+
