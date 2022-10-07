@@ -18,7 +18,7 @@ void print_result_descendente(int n);
 
 void ord_ins(int v[], int n){
     int i,j,x;
-    for (i=1;i<=n;i++) {
+    for (i=1;i<n;i++) {
         x = v[i];
         j = i - 1;
         while (j >= 0 && v[j] > x) {
@@ -77,7 +77,7 @@ void descendente(int v[], int n){
 }
 void test (){
     int v1[10],v2[17],i;
-    descendente(v1, 11); //Inicializo el vector con elementos desecendentes.
+    descendente(v1, 10); //Inicializo el vector con elementos desecendentes.
     printf("\nOrdenacion por insercion con inicializacion descendente: \n");
     for(i=0;i<10; i++){
         printf(" %d ", v1[i]);
@@ -184,4 +184,3 @@ void print_result_descendente(int n){
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
-
