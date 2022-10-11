@@ -113,28 +113,38 @@ double microsegundos() {
 }
 
 void print_result_aleatorio(int n){
-    double t1, t2, t, x, y, z;
+    double t1, t2,ta, tb, t, x, y, z;
+    int vector[n];
     int k=1000;
     t1=microsegundos();
     t2=microsegundos();
     t=t2-t1;
     if (t < 500){
-        t1=microsegundos();
+        ta=microsegundos();
         for(int i=0;i<k;i++){
-
+            aleatorio(vector, n);
+            ord_ins(vector,n);
         }
-        t2=microsegundos();
-        t=(t2-t1)/k;
+        tb=microsegundos();
+        t1=(tb-ta);
+        ta=microsegundos();
+        for(int i=0;i<k;i++){
+            aleatorio(vector, n);
+        }
+        tb=microsegundos();
+        t2=tb-ta;
+        t=(t1-t2)/k;
         printf("(*)");
 
     }else{
         printf("   ");
     }
-    //x =;
+    x = t / pow (n, 1.8);
     y = t/ pow(n,2);
-    //z =;
+    z = t / pow ( n, 2.2);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 }
+
 
 void print_result_ascendente(int n){
     double t1, t2, t, x, y, z;
