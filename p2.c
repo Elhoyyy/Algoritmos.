@@ -21,7 +21,7 @@ void ord_ins(int v[], int n){
     for (i=1;i<n;i++) {
         x = v[i];
         j = i - 1;
-        while (j >= 0 && v[j] > x) {
+        while (j > -1 && v[j] > x) {
             v[j + 1] = v[j];
             j = j - 1;
         }
@@ -35,20 +35,20 @@ int main(){
     test();
     printf("\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i=0;i<10;i++){
+    for( i=0;i<7;i++){
         print_result_aleatorio(n1);
         n1=n1*2;
     }
     printf("\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i=0;i<10;i++){
+    for( i=0;i<7;i++){
         print_result_ascendente(n2);
         n2=n2*2;
     }
     printf("\n");
 
     printf("\t      n\t         t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i=0;i<10;i++){
+    for( i=0;i<7;i++){
         print_result_descendente(n3);
         n3=n3*2;
     }
@@ -70,7 +70,7 @@ void ascendente(int v [], int n) {
 }
 void descendente(int v[], int n){
     int i,j=0;
-    for(i=10; i>0; i--){
+    for(i=n; i>0; i--){
         v[j]=i;
         j++;
     }
@@ -116,7 +116,9 @@ void print_result_aleatorio(int n){
     double t1, t2,ta, tb, t, x, y, z;
     int vector[n];
     int k=1000;
+    aleatorio(vector, n);
     t1=microsegundos();
+    ord_ins(vector,n);
     t2=microsegundos();
     t=t2-t1;
     if (t < 500){
@@ -143,54 +145,76 @@ void print_result_aleatorio(int n){
     y = t/ pow(n,2);
     z = t / pow ( n, 2.2);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
+
 }
 
-
 void print_result_ascendente(int n){
-    double t1, t2, t, x, y, z;
+    double t1, t2,ta, tb, t, x, y, z;
+    int vector[n];
     int k=1000;
+    ascendente(vector, n);
     t1=microsegundos();
+    ord_ins(vector,n);
     t2=microsegundos();
     t=t2-t1;
     if (t < 500){
-        t1=microsegundos();
+        ta=microsegundos();
         for(int i=0;i<k;i++){
-
+            ascendente(vector, n);
+            ord_ins(vector,n);
         }
-        t2=microsegundos();
-        t=(t2-t1)/k;
+        tb=microsegundos();
+        t1=(tb-ta);
+        ta=microsegundos();
+        for(int i=0;i<k;i++){
+            ascendente(vector, n);
+        }
+        tb=microsegundos();
+        t2=tb-ta;
+        t=(t1-t2)/k;
         printf("(*)");
 
     }else{
         printf("   ");
     }
-    //x =;
-    y = t/ pow(n,2);
-    //z =;
+    x = t / pow(n,0.8);
+    y = t/ n;
+    z = t / pow(n,1.2);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 }
 
 void print_result_descendente(int n){
-    double t1, t2, t, x, y, z;
+    double t1, t2,ta, tb, t, x, y, z;
+    int vector[n];
     int k=1000;
+    descendente(vector, n);
     t1=microsegundos();
+    ord_ins(vector,n);
     t2=microsegundos();
     t=t2-t1;
     if (t < 500){
-        t1=microsegundos();
+        ta=microsegundos();
         for(int i=0;i<k;i++){
-
+            descendente(vector, n);
+            ord_ins(vector,n);
         }
-        t2=microsegundos();
-        t=(t2-t1)/k;
+        tb=microsegundos();
+        t1=(tb-ta);
+        ta=microsegundos();
+        for(int i=0;i<k;i++){
+            descendente(vector, n);
+        }
+        tb=microsegundos();
+        t2=tb-ta;
+        t=(t1-t2)/k;
         printf("(*)");
 
     }else{
         printf("   ");
     }
-    //x = t/n ;
-    y =t/ pow(n,2);
-    //z =t / pow (n,2);
+    x = t / pow (n, 1.8);
+    y = t/ pow(n,2);
+    z = t / pow ( n, 2.2);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
