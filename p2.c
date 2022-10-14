@@ -2,8 +2,8 @@
 #include <time.h>
 #include <sys/time.h>
 #include <math.h>
-#include <stdbool.h>
 #include <stdlib.h>
+#define UMBRAL 1
 void inicializar_semilla();
 void ord_ins(int v[], int n);
 void aleatorio(int v [], int n);
@@ -13,6 +13,9 @@ void test ();
 void print_result_aleatorio(int n);
 void print_result_ascendente(int n);
 void print_result_descendente(int n);
+void ord_rapida(int v [], int n);
+void intercambiar(int vec[], int a, int b);
+void rapida_aux(int v[ ], int izq, int der);
 
 
 
@@ -217,4 +220,48 @@ void print_result_descendente(int n){
     z = t / pow ( n, 2.2);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
+}
+
+void rapida_aux(int v[ ], int izq, int der){
+    int x;
+    int pivote;
+    int i,j;
+    if ((izq+UMBRAL)<= der ){
+        x=rand() % (der-izq+1)+izq;
+        pivote=v[x];
+
+        intercambiar(v, izq, x);
+        i=izq+1;
+        j=der;
+        while(i<=j) {
+            while (i <= der && v[i] < pivote) {
+                i++;
+            }
+            while (v[j] > pivote) {
+                j--;
+            }
+            if (i <= j) {
+                intercambiar(v, i, j);
+                i++;
+                j--;
+            }
+        }
+        intercambiar(v, izq, j);
+        rapida_aux(v, izq, j-1);
+        rapida_aux(v, j+1, der);
+
+    }
+}
+
+void intercambiar(int vec[], int a, int b){
+    int aux;
+    aux=vec[a];
+    vec[a]=vec[b];
+    vec[b]=aux;
+
+}
+void ord_rapida(int v [], int n) {
+    rapida_aux(v, 0, n-1);
+    if (UMBRAL > 1)
+        ord_ins(v, n);
 }
