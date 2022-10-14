@@ -33,30 +33,34 @@ void ord_ins(int v[], int n){
 }
 
 int main(){
+    test();
+    for(int j =0; j<3; j++) {
     int n1=500,n2=500,n3=500,i;
     inicializar_semilla();
-    test();
-    printf("\n\n");
-    printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i=0;i<7;i++){
-        print_result_aleatorio(n1);
-        n1=n1*2;
-    }
-    printf("\n");
-    printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i=0;i<7;i++){
-        print_result_ascendente(n2);
-        n2=n2*2;
-    }
-    printf("\n");
 
-    printf("\t      n\t         t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i=0;i<7;i++){
-        print_result_descendente(n3);
-        n3=n3*2;
+    printf("\n\n");
+
+        printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
+        for (i = 0; i < 7; i++) {
+            print_result_aleatorio(n1);
+            n1 = n1 * 2;
+        }
+        printf("\n");
+        printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
+        for (i = 0; i < 7; i++) {
+            print_result_ascendente(n2);
+            n2 = n2 * 2;
+        }
+        printf("\n");
+
+        printf("\t      n\t         t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
+        for (i = 0; i < 7; i++) {
+            print_result_descendente(n3);
+            n3 = n3 * 2;
+        }
     }
     return 0;
-};
+}
 
 void inicializar_semilla() {
     srand(time(NULL));
@@ -121,14 +125,14 @@ void print_result_aleatorio(int n){
     int k=1000;
     aleatorio(vector, n);
     t1=microsegundos();
-    ord_ins(vector,n);
+    ord_rapida(vector,n);
     t2=microsegundos();
     t=t2-t1;
     if (t < 500){
         ta=microsegundos();
         for(int i=0;i<k;i++){
             aleatorio(vector, n);
-            ord_ins(vector,n);
+            ord_rapida(vector,n);
         }
         tb=microsegundos();
         t1=(tb-ta);
@@ -157,14 +161,14 @@ void print_result_ascendente(int n){
     int k=1000;
     ascendente(vector, n);
     t1=microsegundos();
-    ord_ins(vector,n);
+    ord_rapida(vector,n);
     t2=microsegundos();
     t=t2-t1;
     if (t < 500){
         ta=microsegundos();
         for(int i=0;i<k;i++){
             ascendente(vector, n);
-            ord_ins(vector,n);
+            ord_rapida(vector,n);
         }
         tb=microsegundos();
         t1=(tb-ta);
@@ -192,14 +196,14 @@ void print_result_descendente(int n){
     int k=1000;
     descendente(vector, n);
     t1=microsegundos();
-    ord_ins(vector,n);
+    ord_rapida(vector,n);
     t2=microsegundos();
     t=t2-t1;
     if (t < 500){
         ta=microsegundos();
         for(int i=0;i<k;i++){
             descendente(vector, n);
-            ord_ins(vector,n);
+            ord_rapida(vector,n);
         }
         tb=microsegundos();
         t1=(tb-ta);
