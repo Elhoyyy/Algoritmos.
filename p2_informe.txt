@@ -20,6 +20,25 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 -Kernel: 5.15.0-47-generic
 
-Creamos la función test para comprobar que ambos algoritmos funcionan correctamente y poder medir el tiempo de ejecución correctamente.
+Creamos la función test para comprobar que ambos algoritmos funcionan correctamente y poder medir el tiempo de ejecución correctamente. A continuacion ponemos un ejemplo del test:
 
-  -Test ordenacion por inserción
+Ordenacion por insercion con inicializacion descendente: 
+ 10  9  8  7  6  5  4  3  2  1 
+Vector ordenado: 
+ 1  2  3  4  5  6  7  8  9  10 
+
+Ordenacion por insercion con inicializacion aleatoria:
+ -9  -6  -15  -12  -9  -7  14  -15  12  14  -15  -5  3  -13  -4  4  -7 
+Vector ordenado.
+  -15  -15  -15  -13  -12  -9  -9  -7  -7  -6  -5  -4  3  4  12  14  14 
+
+
+Ordenacion rapida con inicializacion descendente: 
+ 1  2  3  4  5  6  7  8  9  10 
+Vector ordenado: 
+ 1  2  3  4  5  6  7  8  9  10 
+
+Ordenacion rapida con inicializacion aleatoria:
+ -15  -12  -5  -4  5  -12  2  -10  0  16  7  -15  -9  4  -1  -15  12 
+Vector ordenado.
+  -15  -15  -15  -12  -12  -10  -9  -5  -4  -1  0  2  4  5  7  12  16 
