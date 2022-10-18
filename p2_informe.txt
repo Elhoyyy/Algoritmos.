@@ -76,11 +76,11 @@ INICIALIZACIÓN ALEATORIA:
 Donde:
 n es el número de interaciones que realiza el bucle. (Es en las demás funciones igual)
 t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
- Cota subestimada: x = n^1.8.
- Cota ajustada:  y = n^2. 
- Cota sobreestimada: z = n^2.2.
+ Cota subestimada: f(n) = n^1.8.
+ Cota ajustada:  g(n) = n^2. 
+ Cota sobreestimada: h(n) = n^2.2.
 	
- 
+ ASCENDENTE:
  
  	    n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
 (*)         500          1.002       0.006945       0.002004       0.000578
@@ -92,9 +92,9 @@ t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funcion
 (*)       32000         65.121       0.016203       0.002035       0.000256
 
 Donde:
-Cota subestimada: x = n ^ 0.8.
-Cota ajustada:  y = n ^ 1.
-Cota sobreestimada: z = n ^ 1.2.
+Cota subestimada: f(n) = n ^ 0.8.
+Cota ajustada:  g(n) = n ^ 1. Cuya constante se aproxima a 0.019.
+Cota sobreestimada: h(n) = n ^ 1.2.
 
 
 DESCENTE:
@@ -109,9 +109,9 @@ DESCENTE:
           32000     709420.000       0.005516       0.000693       0.000087
  
  Donde:
- Cota subestimada: x = n^1.8.
- Cota ajustada:  y = n^2. 
- Cota sobreestimada: z = n^2.2.
+ Cota subestimada: f(n) = n^1.8.
+ Cota ajustada:  g(n) = n^2. 
+ Cota sobreestimada: h(n) = n^2.2.
  
  
  
@@ -130,9 +130,9 @@ DESCENTE:
           32000       3793.000       0.118531       0.042007       0.014887
           
  Donde:
- Cota subestimada: x = n^1.
- Cota ajustada:  y = n^1.1.
- Cota sobreestimada: z = n^1.2.
+ Cota subestimada: f(n) = n^1.
+ Cota ajustada:  g(n) = n^1.1. La cual tiene una constante que tiende a 0.042
+ Cota sobreestimada: h(n) = n^1.2.
           
           
 DESCENDENTE:        
@@ -146,9 +146,9 @@ DESCENDENTE:
           32000       1602.000       0.141263       0.029803       0.006288
           
  Donde:
- Cota subestimada: x=n^0.9.
- Cota ajustada:  y = n^1.04. 
- Cota sobreestimada: z = n^1.2.        
+ Cota subestimada: f(n)=n^0.9.
+ Cota ajustada:  g(n) = n^1.04. Siendo su constante, aproximadamente, 0.029
+ Cota sobreestimada: h(n) = n^1.2.        
  
  
 ASCENDENTE:          
@@ -162,7 +162,91 @@ ASCENDENTE:
           32000       1631.000       0.143820       0.033659       0.006401
           
 Donde:
-Cota subestimada: x = n^0.9.
-Cota ajustada:  y = n^1.05.
-Cota sobreestimada: z =  n ^ 1.2.        
+Cota subestimada: f(n) = n^0.9.
+Cota ajustada:  g(n) = n^1.05. Cuya constante se aproxima a 0.033.
+Cota sobreestimada: h(n) =  n ^ 1.2.        
 
+PARA UMBRAL 10:
+
+ALEATORIO:
+
+	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500         30.375       0.060750       0.027082       0.012847
+(*)        1000         67.291       0.067291       0.027413       0.011966
+(*)        2000        147.666       0.073833       0.027486       0.011041
+(*)        4000        321.641       0.080410       0.027355       0.010111
+           8000        711.000       0.088875       0.027630       0.009397
+          16000       1546.000       0.096625       0.027451       0.008591
+          32000       3313.000       0.103531       0.026878       0.007741
+	  
+ Donde:
+Cota subestimada: f(n) = n.
+Cota ajustada:  g(n) = n^1.13. Cuya constante se aproxima a 0.027.
+Cota sobreestimada: h(n) =  n ^ 1.25. 
+
+ASCENDENTE:
+
+
+	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500          9.558       0.021646       0.011627       0.005516
+(*)        1000         20.489       0.023525       0.011790       0.005147
+(*)        2000         43.677       0.025424       0.011889       0.004775
+(*)        4000         92.634       0.027337       0.011927       0.004409
+(*)        8000        196.711       0.029431       0.011981       0.004075
+(*)       16000        414.350       0.031429       0.011938       0.003736
+          32000        877.000       0.033725       0.011952       0.003442
+	  
+   Donde:
+Cota subestimada: f(n) = n^0.98.
+Cota ajustada:  g(n) = n^1.08.Cuya constante se aproxima a 0.011.
+Cota sobreestimada: h(n) =  n ^ 1.2. 
+
+
+DESCENDENTE:
+
+	      n	         t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500         12.312       0.024624       0.014978       0.007105
+(*)        1000         25.723       0.025723       0.014802       0.006461
+(*)        2000         53.681       0.026840       0.014612       0.005869
+(*)        4000        112.077       0.028019       0.014431       0.005334
+(*)        8000        238.092       0.029762       0.014501       0.004932
+(*)       16000        499.059       0.031191       0.014378       0.004500
+          32000       1059.000       0.033094       0.014432       0.004156
+	  
+    Donde:
+Cota subestimada: f(n) = n.
+Cota ajustada:  g(n) = n^1.08.Cuya constante se aproxima a 0.014.
+Cota sobreestimada: h(n) =  n ^ 1.2.
+
+PARA UMBRAL 100:
+
+ALEATORIO:
+
+	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500         30.860       0.061720       0.029279       0.013052
+(*)        1000         68.237       0.068237       0.029787       0.012134
+(*)        2000        149.836       0.074918       0.030093       0.011203
+(*)        4000        326.585       0.081646       0.030178       0.010266
+           8000        705.000       0.088125       0.029973       0.009318
+          16000       1552.000       0.097000       0.030358       0.008625
+          32000       3345.000       0.104531       0.030104       0.007816
+     Donde:
+Cota subestimada: f(n) = n.
+Cota ajustada:  g(n) = n^1.18.Cuya constante se aproxima a 0.030.
+Cota sobreestimada: h(n) =  n ^ 1.25.
+
+ASCENDENTE:
+
+	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500          3.742       0.007484       0.002522       0.001583
+(*)        1000          8.789       0.008789       0.002624       0.001563
+(*)        2000         20.269       0.010134       0.002680       0.001515
+(*)        4000         45.712       0.011428       0.002677       0.001437
+(*)        8000        102.098       0.012762       0.002648       0.001349
+(*)       16000        225.717       0.014107       0.002593       0.001254
+(*)       32000        495.154       0.015474       0.002519       0.001157
+
+     Donde:
+Cota subestimada: f(n) = n.
+Cota ajustada:  g(n) = n^1.175.Cuya constante se aproxima a 0.026/0.025.
+Cota sobreestimada: h(n) =  n ^ 1.25.
