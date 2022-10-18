@@ -20,7 +20,7 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 -Kernel: 5.15.0-47-generic
 
-Creamos la función test para comprobar que ambos algoritmos funcionan correctamente y poder medir el tiempo de ejecución correctamente. A continuacion ponemos un ejemplo del test:
+Creamos la función test para comprobar que ambos algoritmos funcionan correctamente y poder medir el tiempo de ejecución correctamente, como se puede observar tanto en la ordenación por inserción como en la ordenaicón rapida para el vector con inicialización descendente utilizamos 10 elementos y para el de inicialización aleatoria utilizamos 17 elementos. A continuacion ponemos un ejemplo de lo que nos imprime una ejecución del test por ordenación por inserción y ordenación rápida:
 
 Ordenacion por insercion con inicializacion descendente: 
  10  9  8  7  6  5  4  3  2  1 
@@ -42,3 +42,123 @@ Ordenacion rapida con inicializacion aleatoria:
  -15  -12  -5  -4  5  -12  2  -10  0  16  7  -15  -9  4  -1  -15  12 
 Vector ordenado.
   -15  -15  -15  -12  -12  -10  -9  -5  -4  -1  0  2  4  5  7  12  16 
+  
+Verificación empírica: 
+
+En este apartado calcularemos el tiempo de ejecución de los dos algoritmos comentados anteriormente  y 
+gracias a las tablas que proporcionamos con los distintos tiempos de ejecución de cada cota, realizaremos 
+una comprobación empírica de la complejidad haciendo uso de la cota sobreestimada, ajustada y subestimada.
+
+Los tiempos están medidos en microsegundos.
+
+En el caso de los tiempos fueran menores de 500 milisegundos se ejecutó (para
+la variable n) la función 1000 veces, siendo el tiempo representado la media del tiempo de ejecución, marcando dichos tiempos
+con un asterisco (*) a la izquierda de las iteraciones.
+
+También realizaremos con los datos de las tablas de ordenación rápida una comparación de los distintos tiempos de ejecución para
+los valores de Umbral 1, 10 y 100 especificando cuál es el mejor para las distintas inicializaciones del vector.
+
+TABLAS DE ORDENACIÓN POR INSERCIÓN:
+INICIALIZACIÓN ALEATORIA:
+	            n	          t(n)	        t(n)/f(n)	     t(n)/g(n)	   t(n)/h(n)	
+(*)        1000        463.253       0.001844       0.000463       0.000116
+           2000       1833.000       0.002096       0.000458       0.000100
+           4000       7351.000       0.002413       0.000459       0.000087
+           8000      28566.000       0.002693       0.000446       0.000074
+          16000     116407.000       0.003152       0.000455       0.000066
+          32000     486840.000       0.003785       0.000475       0.000060
+          64000    1932379.000       0.004315       0.000472       0.000052
+          
+Donde:
+n es el número de interaciones que realiza el bucle. (Es en las demás funciones igual)
+t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
+ Cota subestimada: x = n^1.8.
+ Cota ajustada:  y = n^2. 
+ Cota sobreestimada: z = n^2.2.
+	
+ 
+ 
+ 	           n	            t(n)	      t(n)/f(n)	    t(n)/g(n)	     t(n)/h(n)	
+(*)         500          1.002       0.006945       0.002004       0.000578
+(*)        1000          1.985       0.007902       0.001985       0.000499
+(*)        2000          3.826       0.008748       0.001913       0.000418
+(*)        4000          7.910       0.010388       0.001978       0.000376
+(*)        8000         15.816       0.011930       0.001977       0.000328
+(*)       16000         31.456       0.013627       0.001966       0.000284
+(*)       32000         65.121       0.016203       0.002035       0.000256
+
+Donde:
+Cota subestimada: x = n ^ 0.8.
+Cota ajustada:  y = n ^ 1.
+Cota sobreestimada: z = n ^ 1.2.
+
+
+DESCENTE:
+	 
+		            n	         t(n)	       t(n)/f(n)	     t(n)/g(n)	    t(n)/h(n)	
+(*)         500        167.891       0.002327       0.000672       0.000194
+           1000        674.000       0.002683       0.000674       0.000169
+           2000       2719.000       0.003109       0.000680       0.000149
+           4000      10647.000       0.003496       0.000665       0.000127
+           8000      42917.000       0.004046       0.000671       0.000111
+          16000     170192.000       0.004608       0.000665       0.000096
+          32000     709420.000       0.005516       0.000693       0.000087
+ 
+ Donde:
+ Cota subestimada: x = n^1.8.
+ Cota ajustada:  y = n^2. 
+ Cota sobreestimada: z = n^2.2.
+ 
+ 
+ 
+ TABLAS DE ORDENACIÓN RÁPIDA:
+ PARA UMBRAL 1:
+ 
+ ALEATORIO:
+  
+	             n	          t(n)	      t(n)/f(n)	     t(n)/g(n)	     t(n)/h(n)	
+(*)         500         39.224       0.078448       0.042139       0.022635
+(*)        1000         84.989       0.084989       0.042595       0.021348
+(*)        2000        182.646       0.091323       0.042705       0.019970
+(*)        4000        393.055       0.098264       0.042873       0.018706
+           8000        838.000       0.104750       0.042643       0.017359
+          16000       1782.000       0.111375       0.042303       0.016068
+          32000       3793.000       0.118531       0.042007       0.014887
+          
+ Donde:
+ Cota subestimada: x = n^1.
+ Cota ajustada:  y = n^1.1.
+ Cota sobreestimada: z = n^1.2.
+          
+          
+DESCENDENTE:        
+          	  n	           t(n)	      t(n)/f(n)	     t(n)/g(n)	     t(n)/h(n)	
+(*)         500         20.455       0.076160       0.029983       0.011804
+(*)        1000         42.222       0.084244       0.029891       0.010606
+(*)        2000         88.095       0.094194       0.030121       0.009632
+(*)        4000        181.278       0.103870       0.029935       0.008627
+(*)        8000        370.936       0.113898       0.029584       0.007684
+          16000        764.000       0.125715       0.029428       0.006889
+          32000       1602.000       0.141263       0.029803       0.006288
+          
+ Donde:
+ Cota subestimada: x=n^0.9.
+ Cota ajustada:  y = n^1.04. 
+ Cota sobreestimada: z = n^1.2.        
+ 
+ 
+ASCENDENTE:          
+          	  n	           t(n)	      t(n)/f(n)	     t(n)/g(n)	     t(n)/h(n)	
+(*)         500         21.844       0.081332       0.034072       0.012606
+(*)        1000         44.649       0.089086       0.033870       0.011215
+(*)        2000         91.386       0.097713       0.033714       0.009992
+(*)        4000        188.127       0.107795       0.033753       0.008953
+(*)        8000        388.978       0.119438       0.033940       0.008058
+          16000        799.000       0.131474       0.033905       0.007204
+          32000       1631.000       0.143820       0.033659       0.006401
+          
+Donde:
+Cota subestimada: x = n^0.9.
+Cota ajustada:  y = n^1.05.
+Cota sobreestimada: z =  n ^ 1.2.        
+
