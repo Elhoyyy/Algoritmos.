@@ -20,7 +20,10 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 -Kernel: 5.15.0-47-generic
 
-Creamos la función test para comprobar que ambos algoritmos funcionan correctamente y poder medir el tiempo de ejecución correctamente, como se puede observar tanto en la ordenación por inserción como en la ordenaicón rapida para el vector con inicialización descendente utilizamos 10 elementos y para el de inicialización aleatoria utilizamos 17 elementos. A continuacion ponemos un ejemplo de lo que nos imprime una ejecución del test por ordenación por inserción y ordenación rápida:
+Creamos la función test para comprobar que ambos algoritmos funcionan correctamente y poder medir el tiempo de ejecución
+correctamente, como se puede observar tanto en la ordenación por inserción como en la ordenaicón rapida para el vector 
+con inicialización descendente utilizamos 10 elementos y para el de inicialización aleatoria utilizamos 17 elementos. 
+A continuacion ponemos un ejemplo de lo que nos imprime una ejecución del test por ordenación por inserción y ordenación rápida:
 
 Ordenacion por insercion con inicializacion descendente: 
  10  9  8  7  6  5  4  3  2  1 
