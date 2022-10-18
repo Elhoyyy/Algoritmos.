@@ -50,7 +50,7 @@ DESCENDENTE:
 
     
 ORD_RAPIDA:
-UMBRAL1 
+UMBRAL1 (39ms,20ms,22ms)
 ALEATORIO:
 	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
 (*)        1000        463.253       0.001844       0.000463       0.000116
@@ -61,9 +61,9 @@ ALEATORIO:
           32000     486840.000       0.003785       0.000475       0.000060
           64000    1932379.000       0.004315       0.000472       0.000052
 	  
-	 x= pow(n,0.9)*log(pow(n,0.9));
-	 y= pow(n,0.98)*log(pow(n,0.98));
-	 z= pow(n,1.1)*log(pow(n,1.1));
+	 x= t/n;
+	 y= t /pow (n,1.1);
+	 z= t/pow(n,1.2);
 ASCENDENTE:
 	   n	      t(n)	  t(n)/f(n)	 t(n)/g(n)	t(n)/h(n)	
         1000          2.770       0.011028       0.002770       0.000401
@@ -72,9 +72,9 @@ ASCENDENTE:
      1000000       2776.000       0.043997       0.002776       0.000201
     10000000      27756.000       0.069720       0.002776       0.000172
     
-    x = t/(pow(n,0.8)*(log(pow(n,0.8))));
-    y = t/(pow(n,0.93)*(log(pow(n,0.93))));
-    z = t/(n*log(n));
+   	 x = t/pow(n, 0.9);
+	 y= t /pow (n,1.05);
+	 z= t/pow(n,1.2);
 
 DESCENDENTE:
 	   n	      t(n)	  t(n)/f(n)	 t(n)/g(n)	t(n)/h(n)	
@@ -84,7 +84,7 @@ DESCENDENTE:
      1000000          0.119       0.032016       0.008614       0.000119
     10000000          0.133       0.033128       0.008252       0.000042
 
-UMBRAL 10
+UMBRAL 10 (29ms, 9ms, 12ms)
 
 ALEATORIO:
 	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
@@ -111,7 +111,7 @@ DESCENDENTE:
      1000000          0.119       0.032016       0.008614       0.000119
     10000000          0.133       0.033128       0.008252       0.000042
 
-UMBRAL 100
+UMBRAL 100 (30ms , 3ms , 7ms)
 
 ALEATORIO:
 	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
