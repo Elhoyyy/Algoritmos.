@@ -77,7 +77,7 @@ Donde:
 n es el número de interaciones que realiza el bucle. (Es en las demás funciones igual)
 t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
  Cota subestimada: f(n) = n^1.8.
- Cota ajustada:  g(n) = n^2. 
+ Cota ajustada:  g(n) = n^2. La cual tiene una constante que tiende a 0.00046
  Cota sobreestimada: h(n) = n^2.2.
 	
  ASCENDENTE:
@@ -93,11 +93,11 @@ t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funcion
 
 Donde:
 Cota subestimada: f(n) = n ^ 0.8.
-Cota ajustada:  g(n) = n ^ 1. Cuya constante se aproxima a 0.019.
+Cota ajustada:  g(n) = n ^ 1. Cuya constante se aproxima a 0.0019.
 Cota sobreestimada: h(n) = n ^ 1.2.
 
 
-DESCENTE:
+DESCENDENTE:
 	 
  	    n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
 (*)         500        167.891       0.002327       0.000672       0.000194
@@ -110,7 +110,8 @@ DESCENTE:
  
  Donde:
  Cota subestimada: f(n) = n^1.8.
- Cota ajustada:  g(n) = n^2. 
+ Cota ajustada:  g(n) = n^2. La cual tiene una constante que tiende 0.00067 (aunque el último valor se podría considerar una anomalía
+ ya que hace un salto más grande a diferencia de los demás).
  Cota sobreestimada: h(n) = n^2.2.
  
  
@@ -248,7 +249,8 @@ ASCENDENTE:
 
      Donde:
 Cota subestimada: f(n) = n.
-Cota ajustada:  g(n) = n^1.175.Cuya constante se aproxima a 0.026/0.025.
+Cota ajustada:  g(n) = n^1.175.Cuya constante se aproxima a 0.026 y se puede observar una pequeña anomalía tanto en la iteración 500 y 32000 
+ya que son las que más salto pegan con respecto a los demás datos de esta cota.
 Cota sobreestimada: h(n) =  n ^ 1.25.
 
 DESCENDENTE:
@@ -264,5 +266,5 @@ DESCENDENTE:
 	  
   Donde:
   Cota subestima f(n)= n ^ 0.9.
-  Cota ajustada g(n)= n ^ 1.06. Tendiendo a 0.010
+  Cota ajustada g(n)= n ^ 1.06. Tendiendo a 0.010.
   Cota sobrestimada h(n)= n ^ 1.2.
