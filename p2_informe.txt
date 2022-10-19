@@ -250,3 +250,19 @@ ASCENDENTE:
 Cota subestimada: f(n) = n.
 Cota ajustada:  g(n) = n^1.175.Cuya constante se aproxima a 0.026/0.025.
 Cota sobreestimada: h(n) =  n ^ 1.25.
+
+DESCENDENTE:
+
+	      n	         t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500          7.478       0.027843       0.010301       0.004315
+(*)        1000         14.503       0.028937       0.009582       0.003643
+(*)        2000         29.720       0.031778       0.009418       0.003249
+(*)        4000         65.059       0.037278       0.009888       0.003096
+(*)        8000        133.491       0.040989       0.009731       0.002765
+(*)       16000        286.293       0.047109       0.010010       0.002581
+          32000        616.000       0.054318       0.010331       0.002418
+	  
+  Donde:
+  Cota subestima f(n)= n ^ 0.9.
+  Cota ajustada g(n)= n ^ 1.06. Tendiendo a 0.010
+  Cota sobrestimada h(n)= n ^ 1.2.
