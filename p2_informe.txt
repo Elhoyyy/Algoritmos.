@@ -55,8 +55,7 @@ una comprobación empírica de la complejidad haciendo uso de la cota sobreestim
 Los tiempos están medidos en microsegundos.
 
 En el caso de los tiempos fueran menores de 500 milisegundos se ejecutó (para
-la variable n) la función 1000 veces, siendo el tiempo representado la media del tiempo de ejecución, marcando dichos tiempos
-con un asterisco (*) a la izquierda de las iteraciones.
+la variable n) la función 1000 veces y asi la suma del tiempo de las iteraciones es mayor de 500 microsegundos, siendo el tiempo representado la media del tiempo de ejecución, marcando dichos tiempos con un asterisco (*) a la izquierda de las iteraciones.
 
 También realizaremos con los datos de las tablas de ordenación rápida una comparación de los distintos tiempos de ejecución para
 los valores de Umbral 1, 10 y 100 especificando cuál es el mejor para las distintas inicializaciones del vector.
@@ -64,14 +63,14 @@ los valores de Umbral 1, 10 y 100 especificando cuál es el mejor para las disti
 TABLAS DE ORDENACIÓN POR INSERCIÓN:
 INICIALIZACIÓN ALEATORIA:
 
- 	    n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
-(*)        1000        463.253       0.001844       0.000463       0.000116
-           2000       1833.000       0.002096       0.000458       0.000100
-           4000       7351.000       0.002413       0.000459       0.000087
-           8000      28566.000       0.002693       0.000446       0.000074
-          16000     116407.000       0.003152       0.000455       0.000066
-          32000     486840.000       0.003785       0.000475       0.000060
-          64000    1932379.000       0.004315       0.000472       0.000052
+	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500        119.321       0.001654       0.000477       0.000138
+(*)        1000        464.991       0.001851       0.000465       0.000117
+           2000       1818.000       0.002078       0.000454       0.000099
+           4000       7256.000       0.002382       0.000454       0.000086
+           8000      29136.000       0.002747       0.000455       0.000075
+          16000     117698.000       0.003187       0.000460       0.000066
+          32000     491031.000       0.003818       0.000480       0.000060
           
 Donde:
 n es el número de interaciones que realiza el bucle. (Es en las demás funciones igual)
@@ -269,8 +268,15 @@ DESCENDENTE:
   Cota ajustada g(n)= n ^ 1.06. Tendiendo a 0.010.
   Cota sobrestimada h(n)= n ^ 1.2.
 
-A partir de estos datos y de la lógica del algoritmo de ordenacion rápida podemos afirmar;
+A partir de estos datos y de la lógica del algoritmo de ordenacion rápida podemos afirmar:
 
-Para la inicializacion ascendete del vector el mejor umbral es 100 porque cuanto mayor sea el valor de umbral, el algoritmo de ordenacion rápida va a devolver antes el vector, llamando antes al algoritmo de ordenacion por inserción,el cual es más rapido que ordenación rápida en el caso ascendente. 
+Para la inicializacion ascendete del vector el mejor umbral es 100 porque cuanto mayor sea el valor de umbral,
+el algoritmo de ordenacion rápida va a devolver antes el vector, llamando antes al algoritmo de ordenacion por inserción,
+el cual es más rapido que ordenación rápida en el caso ascendente. 
 
-Para la inicialización descendente del vector el mejor umbral es también 100 porque ordenación rápida va cambiando a pares los elementos del vector, por ejemplo cambia el primer elemento por el ultimo, el segundo con el penultimo... por lo tanto cuanto mayor sea el umbral mas cambios de pares puede hacer en el bucle sin tener que hacer la llamada recursiva.
+Para la inicialización descendente del vector el mejor umbral es también 100 porque ordenación rápida va cambiando a pares los
+elementos del vector, por ejemplo cambia el primer elemento por el ultimo, el segundo con el penultimo... 
+por lo tanto cuanto mayor sea el umbral mas cambios de pares puede hacer en el bucle sin tener que hacer la llamada recursiva.
+
+Para la inicalización aleatorio del vector el mejor umbral es 10 porque en el caso de que el umbral fuera 100, la ordenación por inserción
+recibiría un vector de gran tamaño siendo el algoritmo de ordenación 
