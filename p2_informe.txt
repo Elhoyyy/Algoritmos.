@@ -147,7 +147,7 @@ ASCENDENTE:
           
  Donde:
  Cota subestimada: f(n)=n^0.9.
- Cota ajustada:  g(n) = n^1.04. Siendo su constante, aproximadamente, 0.029
+ Cota ajustada:  g(n) = n^1.05. Siendo su constante, aproximadamente, 0.029
  Cota sobreestimada: h(n) = n^1.2.        
  
  
@@ -163,7 +163,7 @@ DESCENDENTE:
           
 Donde:
 Cota subestimada: f(n) = n^0.9.
-Cota ajustada:  g(n) = n^1.05. Cuya constante se aproxima a 0.033.
+Cota ajustada:  g(n) = n^1.04. Cuya constante se aproxima a 0.033.
 Cota sobreestimada: h(n) =  n ^ 1.2.        
 
 PARA UMBRAL 10:
