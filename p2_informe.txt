@@ -268,3 +268,9 @@ DESCENDENTE:
   Cota subestima f(n)= n ^ 0.9.
   Cota ajustada g(n)= n ^ 1.06. Tendiendo a 0.010.
   Cota sobrestimada h(n)= n ^ 1.2.
+
+A partir de estos datos y de la lógica del algoritmo de ordenacion rápida podemos afirmar;
+
+Para la inicializacion ascendete del vector el mejor umbral es 100 porque cuanto mayor sea el valor de umbral, el algoritmo de ordenacion rápida va a devolver antes el vector, llamando antes al algoritmo de ordenacion por inserción,el cual es más rapido que ordenación rápida en el caso ascendente. 
+
+Para la inicialización descendente del vector el mejor umbral es también 100 porque ordenación rápida va cambiando a pares los elementos del vector, por ejemplo cambia el primer elemento por el ultimo, el segundo con el penultimo... por lo tanto cuanto mayor sea el umbral mas cambios de pares puede hacer en el bucle sin tener que hacer la llamada recursiva.
