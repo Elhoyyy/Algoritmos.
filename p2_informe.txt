@@ -271,12 +271,21 @@ DESCENDENTE:
 A partir de estos datos y de la lógica del algoritmo de ordenacion rápida podemos afirmar:
 
 Para la inicializacion ascendete del vector el mejor umbral es 100 porque cuanto mayor sea el valor de umbral,
-el algoritmo de ordenacion rápida va a devolver antes el vector, llamando antes al algoritmo de ordenacion por inserción,
-el cual es más rapido que ordenación rápida en el caso ascendente. 
+el algoritmo de ordenacion rápida va a devolver antes el vector debido a que llama antes al algoritmo de ordenacion por inserción,
+el cual se ejecuta en menor tiempo en el caso ascendente. 
 
 Para la inicialización descendente del vector el mejor umbral es también 100 porque ordenación rápida va cambiando a pares los
 elementos del vector, por ejemplo cambia el primer elemento por el ultimo, el segundo con el penultimo... 
-por lo tanto cuanto mayor sea el umbral mas cambios de pares puede hacer en el bucle sin tener que hacer la llamada recursiva.
+por lo tanto cuanto mayor sea el umbral mas cambios de este estilo puede hacer en el bucle sin tener que llamar recursivamente a la propia función
 
-Para la inicalización aleatorio del vector el mejor umbral es 10 porque en el caso de que el umbral fuera 100, la ordenación por inserción
-recibiría un vector de gran tamaño siendo el algoritmo de ordenación 
+Para la inicalización aleatoria del vector el mejor umbral es 10 porque en el caso de que el umbral fuera 100, la ordenación por inserción
+recibiría un vector de gran tamaño siendo lo que tardaría más tiempo en ordenarse. En el caso de que el umbral fuera 1 el algoritmo tendría que 
+realizar múltiples llamadas recursivas por lo que tardaría más.
+
+CONCLUSIÓN:
+Con las tablas obtenidas y las cotas podemos determinar que comparando los algoritmos de comparación por inserción y ordenación rápida el que tiene
+un tiempo de ejecución menor es el de inicialización en este primer algoritmo, no solo se puede verificar con los tiempos de ejecución, la función también 
+nos indica como, en comparación con las demás es la más pequeña, siendo esta de n^1; a diferencia de la inicialización ascendente, la descendente y aleatoria
+ya imprimen tiempos mucho mayores. Por último, en el segundo algoritmo, podemos indicar que la incialización ascendente en el umbral 100 es la mejor ya que
+al ser el umbral>1 llama al primer algoritmo que tarda muy poco en ordenar el vector, en el caso contrario tenemos la inicialización aleatoria en el umbral 1
+debido a la numerosa cantidad de llamadas recursivas que realiza.
