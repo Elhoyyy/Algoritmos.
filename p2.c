@@ -2,7 +2,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <math.h>
-#include <stdlib.h> //60, 23, 25 //56, 15, 17 //124, 5, 9
+#include <stdlib.h> 
 #define UMBRAL 1
 void inicializar_semilla();
 void ord_ins(int v[], int n);
