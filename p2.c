@@ -1,8 +1,17 @@
+
+/*
+TITULO: Algoritmos Práctica 1
+AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
+AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
+GROUP: 1.1
+DATE: 20/10/2022
+*/
+
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
 #include <math.h>
-#include <stdlib.h> 
+#include <stdlib.h>
 #define UMBRAL 1
 void inicializar_semilla();
 void ord_ins(int v[], int n);
@@ -33,11 +42,11 @@ void ord_ins(int v[], int n){
 }
 
 int main(){
-    int j;
+    int j, n1,n2,n3,i;
+    inicializar_semilla();
     for(j =0; j<2; j++) {
         test(j);
-        int n1=500,n2=500,n3=500,i;
-        inicializar_semilla();
+        n1=500,n2=500,n3=500;
 
         printf("TABLAS:\n\n");
         printf("ALEATORIA:\n\n");
@@ -148,8 +157,7 @@ double microsegundos() {
 
 void print_result_aleatorio(int n,  int j){
     double t1, t2,ta, tb, t, x, y, z;
-    int vector[n];
-    int k=1000;
+    int vector[n], k=1000, i;
     if(j==0){
         aleatorio(vector, n);
         t1 = microsegundos();
@@ -158,14 +166,14 @@ void print_result_aleatorio(int n,  int j){
         t = t2 - t1;
         if (t < 500) {
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 aleatorio(vector, n);
                 ord_ins(vector, n);
             }
             tb = microsegundos();
             t1 = (tb - ta);
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 aleatorio(vector, n);
             }
             tb = microsegundos();
@@ -191,14 +199,14 @@ void print_result_aleatorio(int n,  int j){
         t = t2 - t1;
         if (t < 500) {
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 aleatorio(vector, n);
                 ord_rapida(vector, n);
             }
             tb = microsegundos();
             t1 = (tb - ta);
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 aleatorio(vector, n);
             }
             tb = microsegundos();
@@ -219,8 +227,7 @@ void print_result_aleatorio(int n,  int j){
 
 void print_result_ascendente(int n, int j) {
     double t1, t2, ta, tb, t, x, y, z;
-    int vector[n];
-    int k = 1000;
+    int vector[n], k = 1000, i;
     if (j == 0) {
         ascendente(vector, n);
         t1 = microsegundos();
@@ -229,14 +236,14 @@ void print_result_ascendente(int n, int j) {
         t = t2 - t1;
         if (t < 500) {
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 ascendente(vector, n);
                 ord_ins(vector, n);
             }
             tb = microsegundos();
             t1 = (tb - ta);
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 ascendente(vector, n);
             }
             tb = microsegundos();
@@ -259,14 +266,14 @@ void print_result_ascendente(int n, int j) {
         t = t2 - t1;
         if (t < 500) {
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 ascendente(vector, n);
                 ord_rapida(vector, n);
             }
             tb = microsegundos();
             t1 = (tb - ta);
             ta = microsegundos();
-            for (int i = 0; i < k; i++) {
+            for ( i = 0; i < k; i++) {
                 ascendente(vector, n);
             }
             tb = microsegundos();
