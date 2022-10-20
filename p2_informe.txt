@@ -135,7 +135,7 @@ DESCENDENTE:
  Cota sobreestimada: h(n) = n^1.2.
           
           
-DESCENDENTE:        
+ASCENDENTE:        
  	    n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
 (*)         500         20.455       0.076160       0.029983       0.011804
 (*)        1000         42.222       0.084244       0.029891       0.010606
@@ -151,7 +151,7 @@ DESCENDENTE:
  Cota sobreestimada: h(n) = n^1.2.        
  
  
-ASCENDENTE:          
+DESCENDENTE:          
  	    n	          t(n)	     t(n)/f(n)	    t(n)/g(n)	   t(n)/h(n)	
 (*)         500         21.844       0.081332       0.034072       0.012606
 (*)        1000         44.649       0.089086       0.033870       0.011215
