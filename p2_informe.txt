@@ -5,11 +5,12 @@ AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
 GROUP: 1.1
 DATE: 20/10/2022
 
+INTRODUCCIÓN:
 En esta práctica estudiaremos el tiempo de ejecución y realizaremos una comprabación empírica
 de la complejidad teórica de dos algoritmos cuya función es ordenar ascendentemente un vector. 
 Usando en el algoritmo de ordenación rápida distintos umbrales.
 
-Características de la maquina:
+Caracteristicas de la maquina:
 Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el dispositivo con las siguientes características:
 
 -Procesador: AMD Ryzen 7 5800H with Radeon Graphics 3.20 GHz. (16 CPUS)
@@ -20,26 +21,26 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 -Kernel: 5.15.0-47-generic
 
-Creamos la función test para comprobar que ambos algoritmos funcionan correctamente y poder medir el tiempo de ejecución
+Creamos la función test para comprobar que ambos algoritmos ordenan el vector correctamente y poder medir el tiempo de ejecución
 correctamente, como se puede observar tanto en la ordenación por inserción como en la ordenaicón rapida para el vector 
 con inicialización descendente utilizamos 10 elementos y para el de inicialización aleatoria utilizamos 17 elementos. 
 A continuacion ponemos un ejemplo de lo que nos imprime una ejecución del test por ordenación por inserción y ordenación rápida:
 
-Ordenacion por insercion con inicializacion descendente: 
- 10  9  8  7  6  5  4  3  2  1 
-Vector ordenado: 
- 1  2  3  4  5  6  7  8  9  10 
+
+Ordenacion por insercion con inicializacion descendete:
+ 20  19  18  17  16  15  14  13  12  11  10  9  8  7  6  5  4  3  2  1
+Vector ordenado:
+ 1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20
 
 Ordenacion por insercion con inicializacion aleatoria:
  -9  -6  -15  -12  -9  -7  14  -15  12  14  -15  -5  3  -13  -4  4  -7 
 Vector ordenado.
   -15  -15  -15  -13  -12  -9  -9  -7  -7  -6  -5  -4  3  4  12  14  14 
 
-
-Ordenacion rapida con inicializacion descendente: 
- 1  2  3  4  5  6  7  8  9  10 
-Vector ordenado: 
- 1  2  3  4  5  6  7  8  9  10 
+Ordenacion rapida con inicializacion descendete:
+ 20  19  18  17  16  15  14  13  12  11  10  9  8  7  6  5  4  3  2  1
+Vector ordenado:
+ 1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  16  17  18  19  20
 
 Ordenacion rapida con inicializacion aleatoria:
  -15  -12  -5  -4  5  -12  2  -10  0  16  7  -15  -9  4  -1  -15  12 
