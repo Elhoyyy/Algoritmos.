@@ -11,6 +11,8 @@ void inicializar_semilla();
 void test(int vec[]);
 void print_result_insercion(int n,arbol a);
 void print_result_busqueda(int n,arbol a);
+void print_tiempo_insercion(int n, arbol a);
+void print_tiempo_busqueda(int n , arbol a);
 
 void inicializar_semilla() {
     srand(time(NULL));
@@ -37,10 +39,20 @@ int main () {
     arbol a;
     a= creararbol();
     inicializar_semilla();
-        n1 = 500, n2 = 500;
+        n1 = 500, n2 = 500, n3=500;
 
-        printf("TABLAS:\n\n");
-        printf("INSERCION EN ARBOL VACÍO:\n\n");
+        printf("TABLAS DE TIEMPO:\n\n");
+
+        printf("\t   n\t     t_ins(n)\t    t_bus(n)\n");
+        for(i=0; i<7; i++){
+            print_tiempo_insercion(n3, a);
+            print_tiempo_busqueda(n3,a);
+            n3=n3*2;
+        }
+
+
+
+        printf("\nINSERCION EN ARBOL VACIO:\n\n");
 
 
         printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
@@ -93,7 +105,7 @@ void test(int vec[]){
     }
 
     printf("borro todos nodos liberando la memoria: \n");
-    eliminararbol(a);
+    /*eliminararbol(a);
     if(!arbolvacio(a)) {
         printf("Arbol:");
         visualizar(a);
@@ -102,10 +114,8 @@ void test(int vec[]){
         visualizar(a);
     }
 
-    printf("Altura del arbol : %d\n", altura(a));
-
-
-
+    printf("Altura del arbol : %d\n", altura(a));*/
+    
 }
 
 
@@ -183,5 +193,75 @@ void print_result_busqueda(int n, arbol a){
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
+
+void print_tiempo_insercion(int n , arbol a){
+    double t1, t2,ta, tb, t;
+
+    int vector[n], k=1000, i;
+    aleatorio(vector, n);
+
+    t1 = microsegundos();
+    a= insertar(vector[n], a);
+    t2 = microsegundos();
+    t = t2 - t1;
+    if (t < 500) {
+        ta = microsegundos();
+        for ( i = 0; i < k; i++) {
+            aleatorio(vector, n);
+            a=insertar(vector[n], a);
+        }
+        tb = microsegundos();
+        t1 = (tb - ta);
+        ta = microsegundos();
+        for ( i = 0; i < k; i++) {
+            aleatorio(vector, n);
+        }
+        tb = microsegundos();
+        t2 = tb - ta;
+        t = (t1 - t2) / k;
+
+    } else {
+        printf("   ");
+    }
+    printf("%12d%15.3f", n, t);
+
+}
+
+void print_tiempo_busqueda(int n , arbol a) {
+    double t1, t2, ta, tb, t;
+
+    int vector[n], k = 1000, i;
+    aleatorio(vector, n);
+
+    t1 = microsegundos();
+    buscar(vector[n], a);
+    t2 = microsegundos();
+    t = t2 - t1;
+    if (t < 500) {
+        ta = microsegundos();
+        for (i = 0; i < k; i++) {
+            aleatorio(vector, n);
+            buscar(vector[n], a);
+        }
+        tb = microsegundos();
+        t1 = (tb - ta);
+        ta = microsegundos();
+        for (i = 0; i < k; i++) {
+            aleatorio(vector, n);
+        }
+        tb = microsegundos();
+        t2 = tb - ta;
+        t = (t1 - t2) / k;
+
+    } else {
+        printf("   ");
+    }
+    printf("%15.3f\n", t);
+}
+
+
+
+
+
 
 
