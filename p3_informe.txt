@@ -21,3 +21,22 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 -Version 22.04.1 de 64 bits de Ubuntu.
 
 -Kernel: 5.15.0-47-generic
+
+
+
+BUSQUEDA EN ESE MISMO ARBOL:
+
+	            n	          t(n)	     t(n)/f(n)	   t(n)/g(n)	     t(n)/h(n)	
+(*)         500         46.255       0.092510       0.025084       0.004137
+(*)        1000        109.057       0.109057       0.025565       0.003449
+(*)        2000        250.140       0.125070       0.025348       0.002797
+           4000        560.000       0.140000       0.024530       0.002214
+           8000       1335.000       0.166875       0.025278       0.001866
+          16000       3110.000       0.194375       0.025455       0.001537
+          32000       7242.000       0.226312       0.025623       0.001265
+          
+          f(n) es n
+          g(n) es pow(n,1.21)
+          h(n) es pow(n,1.5)
+          
+          
