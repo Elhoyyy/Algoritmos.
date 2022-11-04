@@ -66,17 +66,21 @@ posicion buscar(int e, arbol a){
     }
 }
 
+
 arbol eliminararbol(arbol a){
-    if(arbolvacio(a)){
-        return NULL;
-    }else if (a->izq!=NULL) {
-        return eliminararbol(a->izq);
-    }else if( a->der!=NULL){
-        return eliminararbol(a->der);
-    }else {
-        free(a);
+    if (a==NULL){
         return NULL;
     }
+    if(a->izq!=NULL) {
+       a->izq= eliminararbol(a->izq);
+
+    }
+    if(a->der!=NULL){
+        a->der=eliminararbol(a->der);
+    }
+    free(a);
+    return a=NULL;
+
 }
 
 posicion hijoizquierdo(arbol a){
