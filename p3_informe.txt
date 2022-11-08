@@ -22,6 +22,21 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 -Kernel: 5.15.0-47-generic
 
+INSERCION EN ARBOL VACIO:
+
+	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+(*)         500         42.044       0.084088       0.033105       0.003761
+(*)        1000         95.142       0.095142       0.033758       0.003009
+(*)        2000        213.998       0.106999       0.034216       0.002393
+(*)        4000        482.610       0.120653       0.034772       0.001908
+           8000       1022.000       0.127750       0.033182       0.001428
+          16000       2218.000       0.138625       0.032451       0.001096
+          32000       4836.000       0.151125       0.031883       0.000845
+	  
+	  x = t / pow(n, 1);
+    y = t / pow(n, 1.15);
+    z = t / pow(n, 1.5);
+	  
 
 
 BUSQUEDA EN ESE MISMO ARBOL:
