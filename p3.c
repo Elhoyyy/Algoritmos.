@@ -156,9 +156,9 @@ void print_result_insercion(int n){
     } else {
         printf("   ");
     }
-    x = t / pow(n, 1.8);
-    y = t / pow(n, 2);
-    z = t / pow(n, 2.2);
+    x = t / pow(n, 1);
+    y = t / pow(n, 1.15);
+    z = t / pow(n, 1.5);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
@@ -215,9 +215,9 @@ void print_result_busqueda(int n){
     } else {
         printf("   ");
     }
-    x = t / pow(n, 1.8);
-    y = t / pow(n, 2);
-    z = t / pow(n, 2.2);
+    x = t / n;
+    y = t / pow(n, 1.21);
+    z = t / pow(n, 1.5);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
@@ -257,8 +257,6 @@ void print_tiempo_insercion(int n){
         t2 = tb - ta;
         t = (t1 - t2) / k;
 
-    } else {
-        printf("   ");
     }
     printf("%12d%15.3f",n,t);
 
@@ -312,13 +310,10 @@ void print_tiempo_busqueda(int n){
         t2 = tb - ta;
         t = (t1 - t2) / k;
 
-    } else {
-        printf("   ");
     }
     printf("%15.3f\n",t);
 
 }
-
 
 
 
