@@ -24,7 +24,7 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 INSERCION EN ARBOL VACIO:
 
-	      n	        t(n)	    t(n)/f(n)	   t(n)/g(n)	  t(n)/h(n)	
+	      n	          t(n)	     t(n)/f(n)	   t(n)/g(n)	   t(n)/h(n)	
 (*)         500         42.044       0.084088       0.033105       0.003761
 (*)        1000         95.142       0.095142       0.033758       0.003009
 (*)        2000        213.998       0.106999       0.034216       0.002393
@@ -41,7 +41,7 @@ INSERCION EN ARBOL VACIO:
 
 BUSQUEDA EN ESE MISMO ARBOL:
 
-	            n	          t(n)	     t(n)/f(n)	   t(n)/g(n)	     t(n)/h(n)	
+	      n	          t(n)	     t(n)/f(n)	   t(n)/g(n)	   t(n)/h(n)	
 (*)         500         46.255       0.092510       0.025084       0.004137
 (*)        1000        109.057       0.109057       0.025565       0.003449
 (*)        2000        250.140       0.125070       0.025348       0.002797
