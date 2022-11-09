@@ -72,7 +72,7 @@ arbol eliminararbol(arbol a){
         return NULL;
     }
     if(a->izq!=NULL) {
-       a->izq= eliminararbol(a->izq);
+        a->izq= eliminararbol(a->izq);
 
     }
     if(a->der!=NULL){
@@ -116,16 +116,17 @@ int max(int altura, int altura1) {
 
 void visualizar(arbol a){
     if (!arbolvacio(a)){
-        visualizar(a->izq);
-        if(a->izq) {
-            printf("(%d)", a->elem);
-        }else if (a->der){
-            printf("(%d)", a->elem);
-        }else{
-            printf("%d", a->elem);
+        if(a->izq!=NULL){
+            printf("(");
+            visualizar(a->izq);
+            printf(")");
         }
-
-        visualizar(a->der);
+        printf("%d",a->elem);
+        if(a->der!=NULL){
+            printf("(");
+            visualizar(a->der);
+            printf(")");
+        }
     }
 }
 
