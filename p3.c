@@ -134,10 +134,10 @@ void print_result_insercion(int n,int o){
         tb = microsegundos();
         t1 = (tb - ta);
         for( int c = 0; c < k*n; c++){
-                a=insertar(vector2[c], a);
-            }
+            a=insertar(vector2[c], a);
+        }
         ta = microsegundos();
-            a=eliminararbol(a);
+        eliminararbol(a);
         tb = microsegundos();
         t2 = tb - ta;
         t = (t1 - t2) / k;
@@ -175,7 +175,7 @@ void print_result_busqueda(int n,int o){
             for(j=0;j<n;j++){
                 buscar(vector2[j], a);
             }
-            eliminararbol(a);
+            a=eliminararbol(a);
         }
         tb = microsegundos();
         t1 = (tb - ta);
@@ -187,7 +187,7 @@ void print_result_busqueda(int n,int o){
             for(j=0;j<n;j++){
                 a=insertar(vector[j], a);
             }
-            eliminararbol(a);
+            a=eliminararbol(a);
         }
         tb = microsegundos();
         t2 = tb - ta;
@@ -205,9 +205,9 @@ void print_result(int o,int tipo, int n, double t){
         }else{
             printf("   ");
         }
-            x = t / n;
-            y = t / pow(n, 1.22);
-            z = t / pow(n, 1.5);
+        x = t / n;
+        y = t / pow(n, 1.22);
+        z = t / pow(n, 1.5);
         printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
     }else{
         if(tipo==1){
