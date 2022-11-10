@@ -206,15 +206,9 @@ void print_result(int o,int tipo, int n, double t){
         }else{
             printf("   ");
         }
-        if(tipo==1){
             x = t / n;
-            y = t / pow(n, 1.15);
+            y = t / pow(n, 1.22);
             z = t / pow(n, 1.5);
-        }else{
-            x = t / n;
-            y = t / pow(n, 1.21);
-            z = t / pow(n, 1.5);
-        }
         printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
     }else{
         if(tipo==1){
@@ -224,4 +218,3 @@ void print_result(int o,int tipo, int n, double t){
         }
     }
 }
-
