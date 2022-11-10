@@ -22,6 +22,11 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 -Kernel: 5.15.0-47-generic
 
+
+Creamos la función test para comprobar que se crea y elimina un arbol correctamente, se insertan y buscan x elementos,
+y se visualiza el arbol de manera que se aprecie cual es la raiz, el hijo izquierdo y el hijo derecho de cada nodo aunque esto
+solo se puede comprobar para una inserción minúscula ya que para una inserción muy grande sería dificil de entender de esta manera.
+
 TEST: 
 Arbol vacio: ()
 Altura del arbol : -1
@@ -44,16 +49,27 @@ Arbol vacio: ()
 Altura del arbol : -1
 
 
+En este apartado calcularemos el tiempo de ejecución resultante de la inserción y búsqueda de n elementos en un árbol  
+(haciendo dicha búsqueda en ese mismo árbol) y gracias a las tablas que proporcionamos con los distintos tiempos de ejecución 
+de cada cota, realizaremos una comprobación empírica de la complejidad haciendo uso de la cota sobreestimada, ajustada y subestimada.
+
+
+Los tiempos están medidos en microsegundos.
+
+
+En el caso de los tiempos fueran menores de 500 microsegundos no los imprimimos debido a---->
+
+
+
 TABLAS DE TIEMPO:
 
-	   n	     t_ins(n)	    t_bus(n)
-        8000       1389.000	       1431.000
-       16000       3278.000	       2940.000
-       32000       5906.000	       5709.000
-       64000      12436.000	      12856.000
-      128000      29138.000	      30491.000
-      256000      67768.000	      69233.000
-      512000     151928.000	     173192.000
+	   n	     t_ins(n)	      t_bus(n)
+        8000       	 837	         1395
+       16000            2837	       	 2627
+       32000       	4483      	 5936
+       64000           11027	      	13072
+      128000           26922	      	30593
+      256000           65100	      	70457
 
 INSERCION EN ARBOL VACIO:
 
@@ -65,9 +81,14 @@ INSERCION EN ARBOL VACIO:
       128000      26922.000       0.210328       0.021232       0.000588
       256000      65100.000       0.254297       0.021071       0.000503
 
-      ajustada pow n 1.18
-      sub n
-      sobre n pow n 1.5
+Donde:
+n es el número de interaciones que realiza el bucle. (Es en las demás funciones igual)
+t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
+ Cota subestimada: f(n) = n^1.
+ Cota ajustada:  g(n) = n^1.18. La cual tiene una constante que tiende a 0.019 o 0.020 incluyendo una anomalía con el valor de n=16000 ya que se produce
+ un gran salto con respecto a los demás tiempos.
+ Cota sobreestimada: h(n) = n^1.5.
+
 
 BUSQUEDA EN ESE MISMO ARBOL:
 
@@ -79,7 +100,13 @@ BUSQUEDA EN ESE MISMO ARBOL:
       128000      30593.000       0.239008       0.028782       0.000668
       256000      70457.000       0.275223       0.029255       0.000544
       
-      
-      ajustada pow n 1.18
-      sub n
-      sobre n pow n 1.5
+
+Donde:
+
+ Cota subestimada: f(n) = n^1.
+ Cota ajustada:  g(n) = n^1.18. La cual tiene una constante que tiende a 0.028 incluyendo una anomalía con el valor de n=8000 ya que se produce
+ un gran salto con respecto a los demás tiempos.
+ Cota sobreestimada: h(n) = n^1.5.
+ 
+ 
+ CONCLUSIÓN:
