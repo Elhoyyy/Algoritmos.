@@ -66,7 +66,7 @@ INSERCION EN ARBOL VACIO:
       256000      77584.000       0.303063       0.019576       0.000599
       512000     176507.000       0.344740       0.019118       0.000482
 
-      ajustada pow n 1.22
+      ajustada pow n 1.18
       sub n
       sobre n pow n 1.5
 
@@ -83,6 +83,6 @@ BUSQUEDA EN ESE MISMO ARBOL:
       512000     178774.000       0.349168       0.019364       0.000488
       
       
-      ajustada pow n 1.22
+      ajustada pow n 1.18
       sub n
       sobre n pow n 1.5
