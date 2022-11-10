@@ -1,5 +1,4 @@
 
-
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
@@ -37,7 +36,7 @@ int main () {
     test(vector);
     int n1, n2, n3,i;
     inicializar_semilla();
-    n3=8000,n2=8000,n1=8000;
+    n3=4000,n2=4000,n1=4000;
 
     printf("TABLAS DE TIEMPO:\n\n");
 
@@ -111,34 +110,34 @@ void test(int vec[]){
 void print_result_insercion(int n,int o){
     double t1, t2,ta, tb, t;
     arbol a;
-    int vector[n], k=1000, i,j;
+    int vector[n],k=1000, i,j;
+    int *vector2;
+    vector2 = malloc(n*k*sizeof(int));
     aleatorio(vector, n);
+    aleatorio(vector2,k*n);
     a=creararbol();
     t1 = microsegundos();
     for(j=0;j<n;j++){
         a=insertar(vector[j], a);
     }
     t2 = microsegundos();
-    eliminararbol(a);
+    a=eliminararbol(a);
     t = t2 - t1;
     if (t < 500) {
         ta = microsegundos();
         for ( i = 0; i < k; i++) {
-            a=creararbol();
-            aleatorio(vector, n);
             for(int p=0;p<n;p++){
                 a=insertar(vector[p], a);
             }
-            eliminararbol(a);
+            a=eliminararbol(a);
         }
         tb = microsegundos();
         t1 = (tb - ta);
+        for( int c = 0; c < k*n; c++){
+                a=insertar(vector2[c], a);
+            }
         ta = microsegundos();
-        for ( i = 0; i < k; i++) {
-            a=creararbol();
-            aleatorio(vector, n);
-            eliminararbol(a);
-        }
+            a=eliminararbol(a);
         tb = microsegundos();
         t2 = tb - ta;
         t = (t1 - t2) / k;
