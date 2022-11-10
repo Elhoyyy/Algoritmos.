@@ -159,7 +159,7 @@ void print_result(double insercion, int n){
     double x,y,z;
     if(insercion>500){
         x = insercion / n;
-        y = insercion / pow(n, 1.22);
+        y = insercion / pow(n, 1.18);
         z = insercion / pow(n, 1.5);
         printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, insercion, x, y, z);
     }
