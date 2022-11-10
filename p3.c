@@ -164,31 +164,17 @@ void print_result_busqueda(int n,int o){
     eliminararbol(a);
     t = t2 - t1;
     if (t < 500) {
+        aleatorio(vector2,n);
         ta = microsegundos();
         for ( i = 0; i < k; i++) {
-            a=creararbol();
-            aleatorio(vector, n);
-            aleatorio(vector2,n);
-            for(j=0;j<n;j++){
-                a=insertar(vector[j], a);
-            }
             for(j=0;j<n;j++){
                 buscar(vector2[j], a);
             }
-            a=eliminararbol(a);
         }
         tb = microsegundos();
         t1 = (tb - ta);
         ta = microsegundos();
-        for ( i = 0; i < k; i++) {
-            a=creararbol();
-            aleatorio(vector, n);
-            aleatorio(vector2,n);
-            for(j=0;j<n;j++){
-                a=insertar(vector[j], a);
-            }
-            a=eliminararbol(a);
-        }
+        eliminararbol(a);
         tb = microsegundos();
         t2 = tb - ta;
         t = (t1 - t2) / k;
@@ -196,6 +182,7 @@ void print_result_busqueda(int n,int o){
     print_result(o,2,n,t);
 
 }
+
 
 void print_result(int o,int tipo, int n, double t){
     double x,y,z;
