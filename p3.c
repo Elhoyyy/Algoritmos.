@@ -9,9 +9,10 @@
 void aleatorio(int v [], int n);
 void inicializar_semilla();
 void test(int vec[]);
-void print_result_insercion(int n,int o);
-void print_result_busqueda(int n,int o);
-void print_result(int o,int tipo, int n, double t);
+double result_insercion(int n);
+double result_busqueda(int n);
+void print_time(int n, double insercion[],double busqueda[]);
+void print_result(double insercion, int n);
 
 void inicializar_semilla() {
     srand(time(NULL));
@@ -35,17 +36,20 @@ int main () {
     int vector[6] = {3, 1, 2, 5, 4, 5};
     test(vector);
     int n1, n2, n3,i;
+    double insercion[7],busqueda[7];
     inicializar_semilla();
-    n3=4000,n2=4000,n1=4000;
+    n3=2000,n2=2000,n1=2000;
+    for(i=0; i<7;i++){
+        insercion[i]=result_insercion(n3);
+        busqueda[i]=result_busqueda(n3);
+        n3=n3*2;
+    }
 
     printf("TABLAS DE TIEMPO:\n\n");
 
     printf("\t   n\t     t_ins(n)\t    t_bus(n)\n");
-    for(i=0; i<6;i++){
-        print_result_insercion(n3,0);
-        print_result_busqueda(n3,0);
-        n3=n3*2;
-    }
+
+    print_time(n1,insercion,busqueda);
 
 
 
@@ -53,18 +57,18 @@ int main () {
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i= 0; i < 6; i++) {
-        print_result_insercion(n1,1);
-        n1 = n1 * 2;
+    for (i= 0; i < 7; i++) {
+        print_result(insercion[i],n2);
+        n2=n2*2;
     }
     printf("\n");
     printf("BUSQUEDA EN ESE MISMO ARBOL:\n\n");
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i = 0; i < 6; i++) {
-        print_result_busqueda(n2,1);
-        n2 = n2 * 2;
+    for (i = 0; i < 7; i++) {
+        print_result(busqueda[i],n1);
+        n1 = n1 * 2;
 
     }
     return 0;
@@ -107,53 +111,29 @@ void test(int vec[]){
 
 
 
-void print_result_insercion(int n,int o){
-    double t1, t2,ta, tb, t;
+double result_insercion(int n){
+    double t1, t2, t;
     arbol a;
-    int vector[n],k=1000, i,j;
-    int *vector2;
-    vector2 = malloc(n*k*sizeof(int));
+    int vector[n],j;
     aleatorio(vector, n);
-    aleatorio(vector2,k*n);
     a=creararbol();
     t1 = microsegundos();
     for(j=0;j<n;j++){
         a=insertar(vector[j], a);
     }
     t2 = microsegundos();
-    a=eliminararbol(a);
+    eliminararbol(a);
     t = t2 - t1;
-    if (t < 500) {
-        ta = microsegundos();
-        for ( i = 0; i < k; i++) {
-            for(int p=0;p<n;p++){
-                a=insertar(vector[p], a);
-            }
-            a=eliminararbol(a);
-        }
-        tb = microsegundos();
-        t1 = (tb - ta);
-        for( int c = 0; c < k*n; c++){
-            a=insertar(vector2[c], a);
-        }
-        ta = microsegundos();
-        eliminararbol(a);
-        tb = microsegundos();
-        t2 = tb - ta;
-        t = (t1 - t2) / k;
-    }
-    print_result(o,1,n,t);
+        return t;
 }
 
 
-void print_result_busqueda(int n,int o){
-    double t1, t2,ta, tb, t;
+double result_busqueda(int n){
+    double t1, t2, t;
     arbol a;
-    int vector[n],k=1000, i,j;
-    int *vector2;
-    vector2 = malloc(n*k*sizeof(int));
+    int vector[n],vector2[n],j;
     aleatorio(vector, n);
-    aleatorio(vector2,k*n);
+    aleatorio(vector2,n);
     a=creararbol();
     for(j=0;j<n;j++){
         a=insertar(vector[j], a);
@@ -163,44 +143,25 @@ void print_result_busqueda(int n,int o){
         buscar(vector2[j], a);
     }
     t2 = microsegundos();
+    eliminararbol(a);
     t = t2 - t1;
-    if (t < 500) {
-        ta = microsegundos();
-        for ( i = 0; i < k; i++) {
-            for(int p=0;p<n;p++){
-                buscar(vector2[p], a);
-            }
-        }
-        tb = microsegundos();
-        t1 = (tb - ta);
-        ta = microsegundos();
-        eliminararbol(a);
-        tb = microsegundos();
-        t2 = tb - ta;
-        t = (t1 - t2) / k;
-    }
-    print_result(o,1,n,t);
+    return t;
 }
-
-
-
-void print_result(int o,int tipo, int n, double t){
-    double x,y,z;
-    if(o==1){
-        if(t<500){
-            printf("(*)");
-        }else{
-            printf("   ");
-        }
-        x = t / n;
-        y = t / pow(n, 1.22);
-        z = t / pow(n, 1.5);
-        printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
-    }else{
-        if(tipo==1){
-            printf("%12d%15.3f\t",n,t);
-        }else{
-            printf("%15.3f\n",t);
-        }
+void print_time(int n, double insercion[],double busqueda[]){
+    for(int i=0;i<7;i++){
+        if(insercion[i]>500&&busqueda[i]>500){
+        printf("\t%d\t        %.0f \t      %.0f\n",n,insercion[i],busqueda[i]);
     }
+        n=n*2;
+    }
+}
+void print_result(double insercion, int n){
+    double x,y,z;
+    if(insercion>500){
+        x = insercion / n;
+        y = insercion / pow(n, 1.22);
+        z = insercion / pow(n, 1.5);
+        printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, insercion, x, y, z);
+    }
+
 }
