@@ -39,7 +39,7 @@ int main () {
     double insercion[7],busqueda[7];
     inicializar_semilla();
     n3=2000,n2=2000,n1=2000;
-    for(i=0; i<7;i++){
+    for(i=0; i<8;i++){
         insercion[i]=result_insercion(n3);
         busqueda[i]=result_busqueda(n3);
         n3=n3*2;
@@ -57,7 +57,7 @@ int main () {
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i= 0; i < 7; i++) {
+    for (i= 0; i < 8; i++) {
         print_result(insercion[i],n2);
         n2=n2*2;
     }
@@ -66,7 +66,7 @@ int main () {
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i = 0; i < 7; i++) {
+    for (i = 0; i < 8; i++) {
         print_result(busqueda[i],n1);
         n1 = n1 * 2;
 
@@ -148,7 +148,7 @@ double result_busqueda(int n){
     return t;
 }
 void print_time(int n, double insercion[],double busqueda[]){
-    for(int i=0;i<7;i++){
+    for(int i=0;i<8;i++){
         if(insercion[i]>500&&busqueda[i]>500){
         printf("\t%d\t        %.0f \t      %.0f\n",n,insercion[i],busqueda[i]);
     }
