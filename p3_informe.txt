@@ -22,6 +22,28 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 
 -Kernel: 5.15.0-47-generic
 
+TEST: 
+Arbol vacio: ()
+Altura del arbol : -1
+inserto un 3
+inserto un 1
+inserto un 2
+inserto un 5
+inserto un 4
+inserto un 5
+Arbol:( 1 ( 2 )) 3 (( 4 ) 5 )
+Altura del arbol : 2
+busco 3 y encuentro 3 repetido: 1 veces
+busco 1 y encuentro 1 repetido: 1 veces
+busco 2 y encuentro 2 repetido: 1 veces
+busco 5 y encuentro 5 repetido: 2 veces
+busco 4 y encuentro 4 repetido: 1 veces
+busco 6 y no encuentro nada
+borro todos nodos liberando la memoria:
+Arbol vacio: ()
+Altura del arbol : -1
+
+
 TABLAS DE TIEMPO:
 
 	   n	     t_ins(n)	    t_bus(n)
