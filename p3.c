@@ -149,9 +149,11 @@ void print_result_insercion(int n,int o){
 void print_result_busqueda(int n,int o){
     double t1, t2,ta, tb, t;
     arbol a;
-    int vector[n],vector2[n], k=1000, i,j;
+    int vector[n],k=1000, i,j;
+    int *vector2;
+    vector2 = malloc(n*k*sizeof(int));
     aleatorio(vector, n);
-    aleatorio(vector2,n);
+    aleatorio(vector2,k*n);
     a=creararbol();
     for(j=0;j<n;j++){
         a=insertar(vector[j], a);
@@ -161,14 +163,12 @@ void print_result_busqueda(int n,int o){
         buscar(vector2[j], a);
     }
     t2 = microsegundos();
-    eliminararbol(a);
     t = t2 - t1;
     if (t < 500) {
-        aleatorio(vector2,n);
         ta = microsegundos();
         for ( i = 0; i < k; i++) {
-            for(j=0;j<n;j++){
-                buscar(vector2[j], a);
+            for(int p=0;p<n;p++){
+                buscar(vector2[p], a);
             }
         }
         tb = microsegundos();
@@ -179,9 +179,9 @@ void print_result_busqueda(int n,int o){
         t2 = tb - ta;
         t = (t1 - t2) / k;
     }
-    print_result(o,2,n,t);
-
+    print_result(o,1,n,t);
 }
+
 
 
 void print_result(int o,int tipo, int n, double t){
