@@ -1,5 +1,12 @@
 
 
+
+//
+// Created by eloys on 27/10/2022.
+//
+
+
+
 #ifndef P3_ALGORITMOS_P3_H
 #define P3_ALGORITMOS_P3_H
 
@@ -24,7 +31,6 @@ static struct nodo *crearnodo(int e) {
 }
 
 int max(int altura, int altura1);
-void escribir(arbol a);
 
 arbol insertar(int e, arbol a){
     if (a == NULL)
@@ -36,6 +42,13 @@ arbol insertar(int e, arbol a){
     else
         a->num_repeticiones++;
     return a;
+}
+
+int CountNode(arbol a){
+    if(a==NULL)
+        return 0;
+
+    return 1+CountNode(a->izq)+ CountNode(a->der);
 }
 
 arbol creararbol(){
@@ -113,24 +126,23 @@ int max(int altura, int altura1) {
 
 void visualizar(arbol a){
     if (!arbolvacio(a)){
-        printf("Arbol:");
-        escribir(a);
-    }else{
-        printf("Arbol vacio: ()\n");
+        if(a->izq!=NULL){
+            printf("(");
+            visualizar(a->izq);
+            printf(")");
+        }
+        printf("%d",a->elem);
+        if(a->der!=NULL){
+            printf("(");
+            visualizar(a->der);
+            printf(")");
+        }
     }
 }
 
-void escribir(arbol a){
-    if(a->izq!=NULL){
-        printf("(");
-        escribir(a->izq);
-        printf(")");
-    }
-    printf(" %d ",a->elem);
-    if(a->der!=NULL){
-        printf("(");
-        escribir(a->der);
-        printf(")");
-    }
-}
+struct tiempo{
+    double tinsercion;
+    double tbusqueda;
+};
+
 #endif //P3_ALGORITMOS_P3_H
