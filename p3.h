@@ -3,6 +3,8 @@
 
 
 
+
+
 #ifndef P3_ALGORITMOS_P3_H
 #define P3_ALGORITMOS_P3_H
 
@@ -26,8 +28,6 @@ static struct nodo *crearnodo(int e) {
     return p;
 }
 
-int max(int altura, int altura1);
-
 arbol insertar(int e, arbol a){
     if (a == NULL)
         return crearnodo(e);
@@ -45,7 +45,7 @@ arbol creararbol(){
     return a;
 }
 
-int arbolvacio(arbol a){
+int esarbolvacio(arbol a){
     if( a==NULL){
         return 1;
     }else{
@@ -54,7 +54,7 @@ int arbolvacio(arbol a){
 }
 
 posicion buscar(int e, arbol a){
-    if(arbolvacio(a)){
+    if(esarbolvacio(a)){
         return NULL;
     }else if(e==a->elem){
         return a;
@@ -95,16 +95,6 @@ int elemento (posicion pos){
 int numrepeticion (posicion pos){
     return pos->num_repeticiones;
 }
-
-int altura(arbol a) {
-    if (arbolvacio(a)) {
-        return -1;
-
-    }else{
-        return 1+ max (altura(a->izq), altura(a->der));
-    }
-}
-
 int max(int altura, int altura1) {
     if(altura>altura1){
         return altura;
@@ -113,8 +103,17 @@ int max(int altura, int altura1) {
     }
 }
 
+int altura(arbol a) {
+    if (esarbolvacio(a)) {
+        return -1;
+
+    }else{
+        return 1+ max (altura(a->izq), altura(a->der));
+    }
+}
+
 void visualizar(arbol a){
-    if (!arbolvacio(a)){
+    if (!esarbolvacio(a)){
         if(a->izq!=NULL){
             printf("(");
             visualizar(a->izq);
