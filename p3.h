@@ -1,10 +1,6 @@
 
 
 
-//
-// Created by eloys on 27/10/2022.
-//
-
 
 
 #ifndef P3_ALGORITMOS_P3_H
@@ -42,13 +38,6 @@ arbol insertar(int e, arbol a){
     else
         a->num_repeticiones++;
     return a;
-}
-
-int CountNode(arbol a){
-    if(a==NULL)
-        return 0;
-
-    return 1+CountNode(a->izq)+ CountNode(a->der);
 }
 
 arbol creararbol(){
