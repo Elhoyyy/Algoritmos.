@@ -39,7 +39,7 @@ int main () {
     double insercion[7],busqueda[7];
     inicializar_semilla();
     n3=2000,n2=2000,n1=2000;
-    for(i=0; i<7;i++){
+    for(i=0; i<8;i++){
         temp= result_tiempo(n3);
         insercion[i]=temp.tinsercion;
         busqueda[i]=temp.tbusqueda;
@@ -58,7 +58,7 @@ int main () {
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i= 0; i < 7; i++) {
+    for (i= 0; i < 8; i++) {
         print_result(insercion[i],n2);
         n2=n2*2;
     }
@@ -67,7 +67,7 @@ int main () {
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i = 0; i < 7; i++) {
+    for (i = 0; i < 8; i++) {
         print_result(busqueda[i],n1);
         n1 = n1 * 2;
 
@@ -140,20 +140,20 @@ struct tiempo result_tiempo(int n){
 
 
 void print_time(int n, double insercion[],double busqueda[]){
-    for(int i=0;i<7;i++){
+    for(int i=0;i<8;i++){
         if(insercion[i]>500&&busqueda[i]>500){
 	printf("\t%d\t        %.0f \t      %.0f\n",n,insercion[i],busqueda[i]);
-    }
+    	}
         n=n*2;
-    }
+     }
 }
 void print_result(double insercion, int n){
     double x,y,z;
     if(insercion>500){
         x = insercion / n;
-        y = insercion / pow(n, 1.22);
+        y = insercion / pow(n, 1.14);
         z = insercion / pow(n, 1.5);
         printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, insercion, x, y, z);
-    }
+    	}
 
 }
