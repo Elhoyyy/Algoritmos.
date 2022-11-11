@@ -64,13 +64,13 @@ provocando  un mayor tiempo en estos últimos debido a que una rama del árbol t
 
 
 TABLAS DE TIEMPO:
-	   n	     t_ins(n)	    t_bus(n)
-	8000	        1295 	      1211
-	16000	        3021 	      2803
-	32000	        6078 	      5880
-	64000	        13247 	      12756
+	    n	     t_ins(n)	    t_bus(n)
+	  8000	         1295 	       1211
+	 16000	         3021 	       2803
+	 32000	         6078 	       5880
+	 64000	        13247 	      12756
 	128000	        28941 	      29766
-	256000	        62915 	      67156
+	256000	        62915 	      66371
 
 INSERCION EN ARBOL VACIO:
 
@@ -86,7 +86,7 @@ Donde:
 n es el número de interaciones que realiza de la función.
 t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
  Cota subestimada: f(n) = n^1.
- Cota ajustada:  g(n) = n^1.14. La cual tiene una constante que tiende a 0.043 o 0.045 incluyendo una anomalía con el valor de n=16000 ya que se produce
+ Cota ajustada:  g(n) = n^1.14. La cual tiene una constante que tiende a 0.043/0.044, incluyendo una anomalía con el valor de n=16000 ya que se produce
  un gran salto con respecto a los demás tiempos.
  Cota sobreestimada: h(n) = n^1.5.
 
@@ -112,7 +112,7 @@ Donde:
  
  CONCLUSIÓN:
  Por último con respecto a la explicación teórica, la empírica varía un mínimo siendo esta mayor que la teórica, tanto para el caso de inserción 
- como para el de búsqueda ya que utilizamos las mismas cotas en ambos casos. El tiempo de insercion es mayor que el de busqueda pero cuanto mas tamaño
- tenga el árbol la diferencia de tiempos es menor llegando a ser mayor el tiempo de búsqueda que le de inserción.
+ como para el de búsqueda ya que utilizamos las mismas cotas en ambos casos. El tiempo de insercion es mayor que el de busqueda pero cuanto más tamaño
+ tenga el árbol, la diferencia de tiempos es menor, llegando a ser mayor el tiempo de búsqueda que el de inserción.
  
  
