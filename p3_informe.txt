@@ -70,6 +70,7 @@ TABLAS DE TIEMPO:
 	32000	        6078 	      5880
 	64000	        13247 	      12756
 	128000	        28941 	      29766
+	256000	        62915 	      67156
 
 INSERCION EN ARBOL VACIO:
 
@@ -79,6 +80,7 @@ INSERCION EN ARBOL VACIO:
        32000       6078.000       0.189938       0.044452       0.001062
        64000      13247.000       0.206984       0.043961       0.000818
       128000      28941.000       0.226102       0.043581       0.000632
+      256000      62915.000       0.245762       0.042989       0.000486
 
 Donde:
 n es el número de interaciones que realiza de la función.
@@ -97,6 +99,7 @@ BUSQUEDA EN ESE MISMO ARBOL:
        32000       5880.000       0.183750       0.043004       0.001027
        64000      12756.000       0.199313       0.042332       0.000788
       128000      29766.000       0.232547       0.044823       0.000650
+      256000      66371.000       0.259262       0.045351       0.000512
       
 
 Donde:
@@ -109,6 +112,7 @@ Donde:
  
  CONCLUSIÓN:
  Por último con respecto a la explicación teórica, la empírica varía un mínimo siendo esta mayor que la teórica, tanto para el caso de inserción 
- como para el de búsqueda ya que utilizamos las mismas cotas en ambos casos. Para la inserc
+ como para el de búsqueda ya que utilizamos las mismas cotas en ambos casos. El tiempo de insercion es mayor que el de busqueda pero cuanto mas tamaño
+ tenga el árbol la diferencia de tiempos es menor llegando a ser mayor el tiempo de búsqueda que le de inserción.
  
  
