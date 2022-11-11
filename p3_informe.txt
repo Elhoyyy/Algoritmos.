@@ -64,30 +64,27 @@ provocando  un mayor tiempo en estos últimos debido a que una rama del árbol t
 
 
 TABLAS DE TIEMPO:
-
-	   n	     t_ins(n)	      t_bus(n)
-        8000       	 837	         1395
-       16000            2837	       	 2627
-       32000       	4483      	 5936
-       64000           11027	      	13072
-      128000           26922	      	30593
-      256000           65100	      	70457
+	   n	     t_ins(n)	    t_bus(n)
+	8000	        1295 	      1211
+	16000	        3021 	      2803
+	32000	        6078 	      5880
+	64000	        13247 	      12756
+	128000	        28941 	      29766
 
 INSERCION EN ARBOL VACIO:
 
 	   n	        t(n)	  t(n)/f(n)	 t(n)/g(n)	t(n)/h(n)	
-        8000        837.000       0.104625       0.018136       0.001170
-       16000       2837.000       0.177313       0.026849       0.001402
-       32000       4483.000       0.140094       0.018532       0.000783
-       64000      11027.000       0.172297       0.019910       0.000681
-      128000      26922.000       0.210328       0.021232       0.000588
-      256000      65100.000       0.254297       0.021071       0.000503
+        8000       1295.000       0.161875       0.045999       0.001810
+       16000       3021.000       0.188812       0.048692       0.001493
+       32000       6078.000       0.189938       0.044452       0.001062
+       64000      13247.000       0.206984       0.043961       0.000818
+      128000      28941.000       0.226102       0.043581       0.000632
 
 Donde:
-n es el número de interaciones que realiza el bucle. (Es en las demás funciones igual)
+n es el número de interaciones que realiza de la función.
 t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
  Cota subestimada: f(n) = n^1.
- Cota ajustada:  g(n) = n^1.18. La cual tiene una constante que tiende a 0.019 o 0.020 incluyendo una anomalía con el valor de n=16000 ya que se produce
+ Cota ajustada:  g(n) = n^1.14. La cual tiene una constante que tiende a 0.043 o 0.045 incluyendo una anomalía con el valor de n=16000 ya que se produce
  un gran salto con respecto a los demás tiempos.
  Cota sobreestimada: h(n) = n^1.5.
 
@@ -95,18 +92,17 @@ t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funcion
 BUSQUEDA EN ESE MISMO ARBOL:
 
 	   n	        t(n)	  t(n)/f(n)	 t(n)/g(n)	t(n)/h(n)	
-        8000       1395.000       0.174375       0.034588       0.001950
-       16000       2627.000       0.164187       0.028747       0.001298
-       32000       5936.000       0.185500       0.028669       0.001037
-       64000      13072.000       0.204250       0.027864       0.000807
-      128000      30593.000       0.239008       0.028782       0.000668
-      256000      70457.000       0.275223       0.029255       0.000544
+        8000       1211.000       0.151375       0.043015       0.001692
+       16000       2803.000       0.175187       0.045178       0.001385
+       32000       5880.000       0.183750       0.043004       0.001027
+       64000      12756.000       0.199313       0.042332       0.000788
+      128000      29766.000       0.232547       0.044823       0.000650
       
 
 Donde:
 
  Cota subestimada: f(n) = n^1.
- Cota ajustada:  g(n) = n^1.18. La cual tiene una constante que tiende a 0.028 incluyendo una anomalía con el valor de n=8000 ya que se produce
+ Cota ajustada:  g(n) = n^1.14. La cual tiene una constante que tiende a 0.043-0.045 incluyendo una anomalía con el valor de n=64000 ya que se produce
  un gran salto con respecto a los demás tiempos.
  Cota sobreestimada: h(n) = n^1.5.
  
