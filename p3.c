@@ -36,7 +36,7 @@ int main () {
     test(vector);
     struct tiempo temp;
     int n1, n2, n3,i;
-    double insercion[7],busqueda[7];
+    double insercion[8],busqueda[8];
     inicializar_semilla();
     n3=2000,n2=2000,n1=2000;
     for(i=0; i<8;i++){
