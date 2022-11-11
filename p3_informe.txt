@@ -57,7 +57,9 @@ de cada cota, realizaremos una comprobación empírica de la complejidad haciend
 Los tiempos están medidos en microsegundos.
 
 
-En el caso de los tiempos fueran menores de 500 microsegundos no los imprimimos debido a---->
+En el caso de los tiempos fueran menores de 500 microsegundos no los imprimimos debido a que el numero de elementos en estos casos, al ser 
+un rango de números más pequeño, la probabilidad de que el árbol quede centrado es mucho mayor en estos casos en los cuales los rangos sean mayores
+provocando  un mayor tiempo en estos últimos debido a que una rama del árbol tiende a actuar como una lista.
 
 
 
@@ -110,3 +112,7 @@ Donde:
  
  
  CONCLUSIÓN:
+ Por último con respecto a la explicación teórica, la empírica varía un mínimo siendo esta mayor que la teórica, tanto para el caso de inserción 
+ como para el de búsqueda ya que utilizamos las mismas cotas en ambos casos. Para la inserc
+ 
+ 
