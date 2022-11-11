@@ -9,8 +9,7 @@
 void aleatorio(int v [], int n);
 void inicializar_semilla();
 void test(int vec[]);
-double result_insercion(int n);
-double result_busqueda(int n);
+struct tiempo result_tiempo(int n);
 void print_time(int n, double insercion[],double busqueda[]);
 void print_result(double insercion, int n);
 
@@ -35,13 +34,15 @@ void aleatorio(int v [], int n) {/* se generan números pseudoaleatorio entre -n
 int main () {
     int vector[6] = {3, 1, 2, 5, 4, 5};
     test(vector);
+    struct tiempo temp;
     int n1, n2, n3,i;
-    double insercion[8],busqueda[8];
+    double insercion[7],busqueda[7];
     inicializar_semilla();
     n3=2000,n2=2000,n1=2000;
-    for(i=0; i<8;i++){
-        insercion[i]=result_insercion(n3);
-        busqueda[i]=result_busqueda(n3);
+    for(i=0; i<7;i++){
+        temp= result_tiempo(n3);
+        insercion[i]=temp.tinsercion;
+        busqueda[i]=temp.tbusqueda;
         n3=n3*2;
     }
 
@@ -57,7 +58,7 @@ int main () {
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i= 0; i < 8; i++) {
+    for (i= 0; i < 7; i++) {
         print_result(insercion[i],n2);
         n2=n2*2;
     }
@@ -66,7 +67,7 @@ int main () {
 
 
     printf("\t   n\t        t(n)\t  t(n)/f(n)\t t(n)/g(n)\tt(n)/h(n)\t\n");
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < 7; i++) {
         print_result(busqueda[i],n1);
         n1 = n1 * 2;
 
@@ -111,46 +112,37 @@ void test(int vec[]){
 
 
 
-double result_insercion(int n){
-    double t1, t2, t;
+struct tiempo result_tiempo(int n){
+    double t1, t2, ta,tb,tc, t;
     arbol a;
-    int vector[n],j;
+    struct tiempo temp;
+    int vector[n],vectorbus[n],j,i;
     aleatorio(vector, n);
+    aleatorio(vectorbus,n);
     a=creararbol();
     t1 = microsegundos();
     for(j=0;j<n;j++){
         a=insertar(vector[j], a);
     }
     t2 = microsegundos();
-    eliminararbol(a);
     t = t2 - t1;
-        return t;
+    ta = microsegundos();
+    for(i=0;i<n;i++){
+        buscar(vectorbus[i],a);
+    }
+    tb=microsegundos();
+    tc=tb-ta;
+    eliminararbol(a);
+    temp.tinsercion=t;
+    temp.tbusqueda=tc;
+        return temp;
 }
 
 
-double result_busqueda(int n){
-    double t1, t2, t;
-    arbol a;
-    int vector[n],vector2[n],j;
-    aleatorio(vector, n);
-    aleatorio(vector2,n);
-    a=creararbol();
-    for(j=0;j<n;j++){
-        a=insertar(vector[j], a);
-    }
-    t1 = microsegundos();
-    for(j=0;j<n;j++){
-        buscar(vector2[j], a);
-    }
-    t2 = microsegundos();
-    eliminararbol(a);
-    t = t2 - t1;
-    return t;
-}
 void print_time(int n, double insercion[],double busqueda[]){
-    for(int i=0;i<8;i++){
+    for(int i=0;i<7;i++){
         if(insercion[i]>500&&busqueda[i]>500){
-        printf("\t%d\t        %.0f \t      %.0f\n",n,insercion[i],busqueda[i]);
+	printf("\t%d\t        %.0f \t      %.0f\n",n,insercion[i],busqueda[i]);
     }
         n=n*2;
     }
@@ -159,7 +151,7 @@ void print_result(double insercion, int n){
     double x,y,z;
     if(insercion>500){
         x = insercion / n;
-        y = insercion / pow(n, 1.18);
+        y = insercion / pow(n, 1.22);
         z = insercion / pow(n, 1.5);
         printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, insercion, x, y, z);
     }
