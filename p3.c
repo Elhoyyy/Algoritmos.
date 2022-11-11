@@ -33,12 +33,11 @@ void aleatorio(int v [], int n) {/* se generan números pseudoaleatorio entre -n
 
 int main () {
     int vector[6] = {3, 1, 2, 5, 4, 5};
-    test(vector);
     struct tiempo temp;
-    int n1, n2, n3,i;
+    int n1=2000, n2=2000, n3=2000,i;
     double insercion[8],busqueda[8];
     inicializar_semilla();
-    n3=2000,n2=2000,n1=2000;
+    test(vector);
     for(i=0; i<8;i++){
         temp= result_tiempo(n3);
         insercion[i]=temp.tinsercion;
@@ -80,6 +79,7 @@ int main () {
 void test(int vec[]){
     arbol a;
     int i;
+    int vector2[6]={3,1,2,5,4,6};
     a=creararbol();
     visualizar(a);
 
@@ -92,7 +92,6 @@ void test(int vec[]){
     visualizar(a);
 
     printf("\nAltura del arbol : %d\n", altura(a));
-    int vector2[6]={3,1,2,5,4,6};
     for(i=0;i<6;i++){
         if(buscar(vector2[i],a)==NULL){
             printf("busco %d y no encuentro nada\n", vector2[i]);
@@ -140,7 +139,8 @@ struct tiempo result_tiempo(int n){
 
 
 void print_time(int n, double insercion[],double busqueda[]){
-    for(int i=0;i<8;i++){
+    int i;
+    for(i=0;i<8;i++){
         if(insercion[i]>500&&busqueda[i]>500){
 	printf("\t%d\t        %.0f \t      %.0f\n",n,insercion[i],busqueda[i]);
     	}
