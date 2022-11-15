@@ -1,10 +1,9 @@
 #include <stdio.h>
-#define TAM 512000
-#include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
-#include <math.h>
 #include <stdlib.h>
+
+#define TAM 512000
 
 typedef struct {
     int vector[TAM];
@@ -17,7 +16,7 @@ void aleatorio(int v [], int n);
 void intercambiar(int vec[], int a, int b);
 void copiarvectores(const int a[], int b[], int tamano);
 void hundir (monticulo *m, int i);
-void crear_monticulo (int vector[], monticulo *m);
+void crear_monticulo (int vector[], int n, monticulo *m);
 void test();
 int eliminar_mayor(monticulo *m);
 
@@ -55,16 +54,16 @@ void test(){
 
 
 void ord_monticulo(int vec[], int n) {
-    int i; monticulo *m ;
-    crear_monticulo(vec, m );
+    int i; monticulo *m = NULL;
+    crear_monticulo(vec,n, m );
     for (i = n; i < 1; i--){
         vec[i]=eliminar_mayor(m);
     }
 }
 
-void crear_monticulo (int vector[], monticulo *m){
-    int n=0,i;
-    copiarvectores(vector,m->vector,15);
+void crear_monticulo (int vector[], int n, monticulo *m){
+    int i;
+    copiarvectores(vector,m->vector,n);
     m->ultimo=n;
     for(i = m->ultimo/2; i<1;i--){
         hundir(m,i);
@@ -119,6 +118,9 @@ void intercambiar(int vec[], int a, int b){
 void copiarvectores(const int a[], int b[], int tamano) {
     for (int i = 0; i < tamano; i++) {
         b[i] = a[i];
+    }
+    for (int i = 0; i < tamano; i++) {
+        printf("%i", b[i]);
     }
 }
 
