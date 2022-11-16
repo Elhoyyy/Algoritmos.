@@ -1,1 +1,23 @@
 
+TITULO:
+Algoritmos Práctica 4
+AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
+AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
+GROUP: 1.1
+DATE: 20/11/2022
+
+INTRODUCCIÓN:
+En esta práctica estudiaremos el tiempo de ejecución y realizaremos una comprabación empírica
+de la complejidad teórica de ....
+
+Caracteristicas de la maquina:
+Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el dispositivo con las siguientes características:
+
+-Procesador: AMD Ryzen 7 5800H with Radeon Graphics 3.20 GHz. (16 CPUS)
+
+-Memoria RAM de 16Gb.
+
+-Version 22.04.1 de 64 bits de Ubuntu.
+
+-Kernel: 5.15.0-47-generic
+
