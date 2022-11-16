@@ -1,3 +1,11 @@
+
+TITULO:
+Algoritmos Práctica 4
+AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
+AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
+GROUP: 1.1
+DATE: 20/11/2022
+
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
