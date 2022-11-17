@@ -1,10 +1,12 @@
-
-TITULO:
+/*TITULO:
 Algoritmos Práctica 4
 AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
-AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
-GROUP: 1.1
+        AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
+        GROUP: 1.1
 DATE: 20/11/2022
+ */
+
+//Monticulo vacío : último = -1;
 
 #include <stdio.h>
 #include <time.h>
@@ -18,6 +20,7 @@ typedef struct {
     int ultimo;
 }monticulo;
 
+
 void ord_monticulo(int vec[], int n);
 void inicializar_semilla();
 void aleatorio(int v [], int n);
@@ -29,9 +32,9 @@ void print_result_aleatorio(int n);
 void print_result_descendente(int n);
 
 void intercambiar(int vec[], int a, int b);
-void copiarvectores(const int a[], int b[], int tamano);
+//void copiarvectores( int a[], monticulo *m, int tamano);
 void hundir (monticulo *m, int i);
-void crear_monticulo (int vector[], int n, monticulo *m);
+void crear_monticulo (const int vector[], int n, monticulo *m);
 void test();
 int eliminar_mayor(monticulo *m);
 
@@ -116,24 +119,23 @@ void test(){
     for (i = 0; i < 15; i++) {
         printf(" %d ", v1[i]);
     }
-
 }
 
-
-
 void ord_monticulo(int vec[], int n) {
-    int i; monticulo *m = NULL;
-    crear_monticulo(vec,n, m );
+    int i; monticulo m ;
+    crear_monticulo(vec,n, &m );
     for (i = n; i < 1; i--){
-        vec[i]=eliminar_mayor(m);
+        vec[i]=eliminar_mayor(&m);
     }
 }
 
-void crear_monticulo (int vector[], int n, monticulo *m){
+void crear_monticulo (const int vector[], int n, monticulo *m){
     int i;
-    copiarvectores(vector,m->vector,n);
-    m->ultimo=n;
-    for(i = m->ultimo/2; i<1;i--){
+    for ( i = 0; i < n-1; i++) {
+        m->vector[i] = vector[i];
+    }
+    m->ultimo=n-1;
+    for(i = n/2; i>=1;i--){
         hundir(m,i);
     }
 }
@@ -143,8 +145,8 @@ int eliminar_mayor(monticulo *m){
     if (m==NULL){
         return -1;
     }else{
-        x=m->vector[1];
-        m->vector[1]=m->vector[m->ultimo];
+        x=m->vector[0];
+        m->vector[0]=m->vector[m->ultimo];
         m->ultimo=m->ultimo-1;
         if(m->ultimo>0){
             hundir(m,1);
@@ -157,16 +159,19 @@ int eliminar_mayor(monticulo *m){
 void hundir (monticulo *m, int i) {
     int hizq, hder, j = 0;
     while (i != j) {
-        hizq = 2 * i;
-        hder = 2 * i + 1;
-        j = 1;
+        hizq = 2 * i +1;
+        hder = 2 * i + 2;
+        j = (i-1)/2;
         if (hder <= m->ultimo && m->vector[hder] > m->vector[i]) {
-            i = hizq;
+            i = hder;
         }
         if (hizq <= m->ultimo && m->vector[hizq] > m->vector[i]) {
             i = hizq;
         }
-        intercambiar(m->vector, j, i);
+        int aux;
+        aux=m->vector[j];
+        m->vector[j]=m->vector[i];
+        m->vector[i]=aux;
 
     }
 
@@ -287,20 +292,22 @@ void print_result_descendente(int n){
 
 //Pequeñas funciones auxiliares a otras.
 
-void intercambiar(int vec[], int a, int b){
+/*void intercambiar(int vec[], int a, int b){
     int aux;
     aux=vec[a];
     vec[a]=vec[b];
     vec[b]=aux;
 
 }
-
-
-void copiarvectores(const int a[], int b[], int tamano) {
-    for (int i = 0; i < tamano; i++) {
-        b[i] = a[i];
+*/
+/*
+void copiarvectores( int a[], monticulo *m, int tamano) {
+    int i;
+    for ( i = 0; i < tamano; i++) {
+        m->vector[i] = a[i];
     }
     for (int i = 0; i < tamano; i++) {
-        printf("%i", b[i]);
+        printf("%i", m->vector[i]);
     }
 }
+*/
