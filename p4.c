@@ -1,12 +1,12 @@
-/*TITULO:
+/*
+TITULO:
 Algoritmos Práctica 4
 AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
         AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
         GROUP: 1.1
 DATE: 20/11/2022
- */
 
-//Monticulo vacío : último = -1;
+ */
 
 #include <stdio.h>
 #include <time.h>
@@ -32,7 +32,6 @@ void print_result_aleatorio(int n);
 void print_result_descendente(int n);
 
 void intercambiar(int vec[], int a, int b);
-//void copiarvectores( int a[], monticulo *m, int tamano);
 void hundir (monticulo *m, int i);
 void crear_monticulo (const int vector[], int n, monticulo *m);
 void test();
@@ -72,7 +71,8 @@ int main (){
     inicializar_semilla();
     test();
 
-    printf("TABLAS:\n\n");
+    printf("\nTABLAS:\n\n");
+    /*
     printf("ALEATORIA:\n\n");
 
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
@@ -100,7 +100,7 @@ int main (){
         print_result_aleatorio(n3);
         n3=n3*2;
 
-    }
+    }*/
 
 
     return 0;
@@ -109,33 +109,52 @@ int main (){
 
 void test(){
     int v1[15], i;
-    printf("\nORDENACION DE MONTICULO CON INICIALIZACION ALEATORIA.:\n");
+    printf("\nORDENACION DE MONTICULO CON INICIALIZACION ALEATORIA:\n");
     aleatorio(v1,15);
     for (i = 0; i < 15; i++) {
         printf(" %d ", v1[i]);
     }
     ord_monticulo(v1,15);
-    printf("Vector ordenado.\n");
+    printf("\nVector ordenado.\n");
+    for (i = 0; i < 15; i++) {
+        printf(" %d ", v1[i]);
+    }
+    printf("\nORDENACION DE MONTICULO CON INICIALIZACION ASCENDENTE:\n");
+    ascendente(v1,15);
+    for (i = 0; i < 15; i++) {
+        printf(" %d ", v1[i]);
+    }
+    ord_monticulo(v1,15);
+    printf("\nVector ordenado.\n");
+    for (i = 0; i < 15; i++) {
+        printf(" %d ", v1[i]);
+    }
+    printf("\nORDENACION DE MONTICULO CON INICIALIZACION DESCENDENTE:\n");
+    descendente(v1,15);
+    for (i = 0; i < 15; i++) {
+        printf(" %d ", v1[i]);
+    }
+    ord_monticulo(v1,15);
+    printf("\nVector ordenado.\n");
     for (i = 0; i < 15; i++) {
         printf(" %d ", v1[i]);
     }
 }
-
 void ord_monticulo(int vec[], int n) {
     int i; monticulo m ;
     crear_monticulo(vec,n, &m );
-    for (i = n; i < 1; i--){
+    for (i = n; i >= 0; i--){
         vec[i]=eliminar_mayor(&m);
     }
 }
 
 void crear_monticulo (const int vector[], int n, monticulo *m){
     int i;
-    for ( i = 0; i < n-1; i++) {
+    for ( i = 0; i < n; i++) {
         m->vector[i] = vector[i];
     }
     m->ultimo=n-1;
-    for(i = n/2; i>=1;i--){
+    for(i = m->ultimo/2; i>=1;i--){
         hundir(m,i);
     }
 }
@@ -143,12 +162,12 @@ void crear_monticulo (const int vector[], int n, monticulo *m){
 int eliminar_mayor(monticulo *m){
     int x;
     if (m==NULL){
-        return -1;
+        return m->ultimo=-1;
     }else{
-        x=m->vector[0];
-        m->vector[0]=m->vector[m->ultimo];
+        x=m->vector[1];
+        m->vector[1]=m->vector[m->ultimo];
         m->ultimo=m->ultimo-1;
-        if(m->ultimo>0){
+        if(m->ultimo>-1){
             hundir(m,1);
         }
         return  x;
@@ -156,19 +175,19 @@ int eliminar_mayor(monticulo *m){
 }
 
 
+
 void hundir (monticulo *m, int i) {
-    int hizq, hder, j = 0;
-    while (i != j) {
-        hizq = 2 * i +1;
-        hder = 2 * i + 2;
-        j = (i-1)/2;
-        if (hder <= m->ultimo && m->vector[hder] > m->vector[i]) {
+    int hizq, hder, j=0,aux;
+    while (j != i) {
+        hizq =  2*i ;
+        hder =  2*i+1;
+        j = i;
+        if (hder <= m->ultimo && (m->vector[hder] > m->vector[i])) {
             i = hder;
         }
-        if (hizq <= m->ultimo && m->vector[hizq] > m->vector[i]) {
+        if (hizq <= m->ultimo && (m->vector[hizq] > m->vector[i])) {
             i = hizq;
         }
-        int aux;
         aux=m->vector[j];
         m->vector[j]=m->vector[i];
         m->vector[i]=aux;
