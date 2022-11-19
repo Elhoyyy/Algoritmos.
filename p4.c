@@ -1,12 +1,4 @@
-/*
-TITULO:
-Algoritmos Práctica 4
-AUTOR 1: Eloy Sastre Sobrino LOGIN 1: eloy.sastre
-        AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
-        GROUP: 1.1
-DATE: 20/11/2022
 
- */
 
 #include <stdio.h>
 #include <time.h>
@@ -74,32 +66,24 @@ int main (){
     printf("\nTABLAS:\n\n");
     /*
     printf("ALEATORIA:\n\n");
-
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
     for(i=0; i<7;i++){
         print_result_descendente(n1);
         n1=n1*2;
-
     }
-
     printf("\n");
     printf("ASCENDENTE:\n\n");
-
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
     for (i = 0; i<7; i++){
         print_result_ascendente(n2);
         n2=n2*2;
-
     }
-
     printf("\n");
     printf("DESCENDENTE:\n\n");
-
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
     for( i = 0; i<7; i++){
         print_result_aleatorio(n3);
         n3=n3*2;
-
     }*/
 
 
@@ -143,7 +127,7 @@ void test(){
 void ord_monticulo(int vec[], int n) {
     int i; monticulo m ;
     crear_monticulo(vec,n, &m );
-    for (i = n; i >= 0; i--){
+    for (i = n-1; i >=0; i--){
         vec[i]=eliminar_mayor(&m);
     }
 }
@@ -154,7 +138,7 @@ void crear_monticulo (const int vector[], int n, monticulo *m){
         m->vector[i] = vector[i];
     }
     m->ultimo=n-1;
-    for(i = m->ultimo/2; i>=1;i--){
+    for(i = (m->ultimo-1)/2; i>=0;i--){
         hundir(m,i);
     }
 }
@@ -164,11 +148,11 @@ int eliminar_mayor(monticulo *m){
     if (m==NULL){
         return m->ultimo=-1;
     }else{
-        x=m->vector[1];
-        m->vector[1]=m->vector[m->ultimo];
+        x=m->vector[0];
+        m->vector[0]=m->vector[m->ultimo];
         m->ultimo=m->ultimo-1;
-        if(m->ultimo>-1){
-            hundir(m,1);
+        if(m->ultimo>=0){
+            hundir(m,0);
         }
         return  x;
     }
@@ -177,10 +161,10 @@ int eliminar_mayor(monticulo *m){
 
 
 void hundir (monticulo *m, int i) {
-    int hizq, hder, j=0,aux;
+    int hizq, hder, j=-1,aux;
     while (j != i) {
-        hizq =  2*i ;
-        hder =  2*i+1;
+        hizq =  2*i+1;
+        hder =  2*i+2;
         j = i;
         if (hder <= m->ultimo && (m->vector[hder] > m->vector[i])) {
             i = hder;
@@ -193,7 +177,6 @@ void hundir (monticulo *m, int i) {
         m->vector[i]=aux;
 
     }
-
 }
 
 void print_result_aleatorio(int n){
@@ -316,7 +299,6 @@ void print_result_descendente(int n){
     aux=vec[a];
     vec[a]=vec[b];
     vec[b]=aux;
-
 }
 */
 /*
