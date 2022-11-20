@@ -23,9 +23,8 @@ void print_result_ascendente(int n);
 void print_result_aleatorio(int n);
 void print_result_descendente(int n);
 
-void intercambiar(int vec[], int a, int b);
 void hundir (monticulo *m, int i);
-void crear_monticulo (const int vector[], int n, monticulo *m);
+void crear_monticulo ( int vector[], int n, monticulo *m);
 void test();
 int eliminar_mayor(monticulo *m);
 
@@ -64,27 +63,28 @@ int main (){
     test();
 
     printf("\nTABLAS:\n\n");
-    /*
-    printf("ALEATORIA:\n\n");
+
+    printf("DESCENDENTE:\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for(i=0; i<7;i++){
+    for(i=0; i<5;i++){
         print_result_descendente(n1);
         n1=n1*2;
     }
+
     printf("\n");
     printf("ASCENDENTE:\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for (i = 0; i<7; i++){
+    for (i = 0; i<4; i++){
         print_result_ascendente(n2);
         n2=n2*2;
     }
     printf("\n");
-    printf("DESCENDENTE:\n\n");
+    printf("ALEATORIA:\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i = 0; i<7; i++){
+    for( i = 0; i<4; i++){
         print_result_aleatorio(n3);
         n3=n3*2;
-    }*/
+    }
 
 
     return 0;
@@ -132,7 +132,7 @@ void ord_monticulo(int vec[], int n) {
     }
 }
 
-void crear_monticulo (const int vector[], int n, monticulo *m){
+void crear_monticulo ( int vector[], int n, monticulo *m){
     int i;
     for ( i = 0; i < n; i++) {
         m->vector[i] = vector[i];
@@ -207,9 +207,9 @@ void print_result_aleatorio(int n){
     } else {
         printf("   ");
     }
-        x = t /n;
-        y = t / pow(n, 1.1);
-        z = t / pow(n, 1.2);
+    x = t /n;
+    y = t / pow(n, 1.1);
+    z = t / pow(n, 1.2);
 
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
@@ -291,24 +291,3 @@ void print_result_descendente(int n){
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
-
-//Pequeñas funciones auxiliares a otras.
-
-/*void intercambiar(int vec[], int a, int b){
-    int aux;
-    aux=vec[a];
-    vec[a]=vec[b];
-    vec[b]=aux;
-}
-*/
-/*
-void copiarvectores( int a[], monticulo *m, int tamano) {
-    int i;
-    for ( i = 0; i < tamano; i++) {
-        m->vector[i] = a[i];
-    }
-    for (int i = 0; i < tamano; i++) {
-        printf("%i", m->vector[i]);
-    }
-}
-*/
