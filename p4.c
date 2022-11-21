@@ -18,18 +18,18 @@ void aleatorio(int v [], int n);
 void ascendente(int v [], int n);
 void descendente(int v [], int n);
 
-void print_result_createascendente(int n)
-void print_result_ascendente(int n);
-void print_result_aleatorio(int n);
-void print_result_descendente(int n);
+void print_result_createascendente(int n);
+        void print_result_ascendente(int n);
+        void print_result_aleatorio(int n);
+        void print_result_descendente(int n);
 
-void hundir (monticulo *m, int i);
-void crear_monticulo ( int vector[], int n, monticulo *m);
-void test();
-int eliminar_mayor(monticulo *m);
+        void hundir (monticulo *m, int i);
+        void crear_monticulo ( int vector[], int n, monticulo *m);
+        void test();
+        int eliminar_mayor(monticulo *m);
 
 
-void inicializar_semilla() {
+                void inicializar_semilla() {
     srand(time(NULL));
 }
 
@@ -63,11 +63,11 @@ int main (){
     test();
 
     printf("\nTABLAS:\n\n");
-    
+
     printf("CREAR MONTICULO CON VECTOR ASCENDENTE:\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
     for (i = 0; i<7; i++){
-        print_result_ascendente(n2);
+        print_result_createascendente(n);
         n=n*2;
     }
 
