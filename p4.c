@@ -1,5 +1,4 @@
 
-
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
@@ -19,6 +18,7 @@ void aleatorio(int v [], int n);
 void ascendente(int v [], int n);
 void descendente(int v [], int n);
 
+void print_result_createascendente(int n)
 void print_result_ascendente(int n);
 void print_result_aleatorio(int n);
 void print_result_descendente(int n);
@@ -58,15 +58,22 @@ void descendente(int v[], int n){
 }
 
 int main (){
-    int n1=500, n2=500, n3=500, i;
+    int n=2000, n1=2000, n2=2000, n3=2000, i;
     inicializar_semilla();
     test();
 
     printf("\nTABLAS:\n\n");
+    
+    printf("CREAR MONTICULO CON VECTOR ASCENDENTE:\n\n");
+    printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
+    for (i = 0; i<7; i++){
+        print_result_ascendente(n2);
+        n=n*2;
+    }
 
     printf("DESCENDENTE:\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for(i=0; i<5;i++){
+    for(i=0; i<7;i++){
         print_result_descendente(n1);
         n1=n1*2;
     }
@@ -74,14 +81,14 @@ int main (){
     printf("\n");
     printf("ASCENDENTE:\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for (i = 0; i<4; i++){
+    for (i = 0; i<7; i++){
         print_result_ascendente(n2);
         n2=n2*2;
     }
     printf("\n");
     printf("ALEATORIA:\n\n");
     printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
-    for( i = 0; i<4; i++){
+    for( i = 0; i<7; i++){
         print_result_aleatorio(n3);
         n3=n3*2;
     }
@@ -207,8 +214,8 @@ void print_result_aleatorio(int n){
     } else {
         printf("   ");
     }
-    x = t /n;
-    y = t / pow(n, 1.1);
+    x = t / n;
+    y = t / pow ( n ,1.09 );
     z = t / pow(n, 1.2);
 
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
@@ -248,9 +255,9 @@ void print_result_ascendente(int n) {
         printf("   ");
     }
 
-    x = t / pow(n, 0.8);
-    y = t /n ;
-    z = t / pow(n, 1.2);
+    x = t / pow(n, 0.85);
+    y = t / n;
+    z = t /pow ( n , 1.05);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
@@ -284,10 +291,48 @@ void print_result_descendente(int n){
     } else {
         printf("   ");
     }
-    x = t / pow(n, 1.8);
-    y = t / pow(n, 2);
-    z = t / pow(n, 2.2);
+    x = t / n;
+    y = t / pow(n, 1.09);
+    z = t / pow(n, 1.2);
 
+    printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
+
+}
+
+
+void print_result_createascendente(int n) {
+    double t1, t2,ta, tb, t, x, y, z;
+    int vector[n], k=1000, i;
+    monticulo m;
+    ascendente(vector, n);
+    t1 = microsegundos();
+    crear_monticulo (vector, n, &m);
+    t2 = microsegundos();
+    t = t2 - t1;
+    if (t < 500) {
+        ta = microsegundos();
+        for ( i = 0; i < k; i++) {
+            ascendente(vector, n);
+            crear_monticulo (vector, n, &m);
+        }
+        tb = microsegundos();
+        t1 = (tb - ta);
+        ta = microsegundos();
+        for ( i = 0; i < k; i++) {
+            ascendente(vector, n);
+        }
+        tb = microsegundos();
+        t2 = tb - ta;
+        t = (t1 - t2) / k;
+        printf("(*)");
+
+    } else {
+        printf("   ");
+    }
+
+    x = t / pow(n, 0.8);
+    y = t / n;
+    z = t /pow ( n , 1.2);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
