@@ -58,7 +58,7 @@ void descendente(int v[], int n){
 }
 
 int main (){
-    int n=2000, n1=2000, n2=2000, n3=2000, i;
+    int n=8000, n1=2000, n2=2000, n3=2000, i;
     inicializar_semilla();
     test();
 
