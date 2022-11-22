@@ -51,7 +51,7 @@ Vector ordenado.
          512000       3407.000       0.092248       0.006654       0.000480
 sub -> n ^0.8
 ajustada -> n^1
-sobre -> n
+sobre -> n^1.2
  
  ALEATORIA:
  
