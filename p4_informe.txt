@@ -129,3 +129,5 @@ Donde:
  Cota sobreestimada: h(n) = n^1.05.
 
 
+Conclusión:
+Podemos afirmar que la mejor inicializacion es la descendente seguida de la aleatoria y por último la ascendente.
