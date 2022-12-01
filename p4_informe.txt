@@ -8,7 +8,7 @@ DATE: 20/11/2022
 
 INTRODUCCIÓN:
 En esta práctica estudiaremos el tiempo de ejecución y realizaremos una comprabación empírica
-de la complejidad teórica de ....
+de la complejidad teórica de un algoritmo de ordenacion de montículos en tres casos distintos, cuando su inicializacion es ascendentes,descendente y aleatorio.
 
 Caracteristicas de la maquina:
 Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el dispositivo con las siguientes características:
@@ -20,6 +20,8 @@ Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el 
 -Version 22.04.1 de 64 bits de Ubuntu.
 
 -Kernel: 5.15.0-47-generic
+
+Creamos la funcion test para comprobar que se crea el monticulo y se ordena de forma correcta para cualquier inicializacion, ascendente,descendente y aleatoria.
 
 TEST:
 
@@ -36,6 +38,15 @@ ORDENACION DE MONTICULO CON INICIALIZACION DESCENDENTE:
 Vector ordenado.
  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
  
+ En este apartado calcularemos el tiempo de creacion de monticulo de forma ascendente de tamaño n y gracias a la tabla podemos confirmar que la que la cota
+ ajustada es igual a la cota teórica: n^1.
+ 
+ 
+Los tiempos están medidos en microsegundos.
+
+En el caso de los tiempos fueran menores de 500 milisegundos se ejecutó (para
+la variable n) la función 1000 veces y asi la suma del tiempo de las iteraciones es mayor de 500 microsegundos, siendo el tiempo representado la media del tiempo de ejecución, marcando dichos tiempos con un asterisco (*) a la izquierda de las iteraciones.
+
  
  TABLAS:
  
@@ -49,9 +60,17 @@ Vector ordenado.
          128000        801.000       0.065745       0.006258       0.000596
          256000       1526.000       0.071939       0.005961       0.000494
          512000       3407.000       0.092248       0.006654       0.000480
-sub -> n ^0.8
-ajustada -> n^1
-sobre -> n^1.2
+	 
+n es el número de interaciones que realiza de la función.
+t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funciones igual)
+ Cota subestimada: f(n) = n^0.8.
+ Cota ajustada:  g(n) = n^1. La cual tiene una constante que tiende a 0.0061/0.0063, incluyendo una anomalía con el valor de n=512000 ya que se produce
+ un gran salto con respecto a los demás tiempos.
+ Cota sobreestimada: h(n) = n^1.2.
+
+
+Ahora calcularemos calcularemos el timepo de ejecución de la ordenacion de montículos ya sea inicializacion ascendente, descendente y aleatoria. Y a partir de los
+tiempos obtenidos mostramos en estas tablas las cotas ajustadas,sobrestimadas y subestimadas para cada inicializacion.
  
  ALEATORIA:
  
@@ -63,9 +82,12 @@ sobre -> n^1.2
           32000       4113.000       0.128531       0.045551       0.016143
           64000       8691.000       0.135797       0.044903       0.014848
          128000      18804.000       0.146906       0.045323       0.013983
-sub-> n^1
-ajustada->n^1
-sobre->n^1.2
+	 
+Donde:
+
+ Cota subestimada: f(n) = n^1.
+ Cota ajustada:  g(n) = n^1.09. La cual tiene una constante que tiende a 0.045-0.047.
+ Cota sobreestimada: h(n) = n^1.2.
 
 
 
@@ -80,12 +102,12 @@ DESCENDENTE:
           32000       2887.000       0.090219       0.035468       0.011331
           64000       6317.000       0.098703       0.036456       0.010792
          128000      13560.000       0.105938       0.036762       0.010083
+Donde:
 
+ Cota subestimada: f(n) = n^1.
+ Cota ajustada:  g(n) = n^1.08. La cual tiene una constante que tiende a 0.035-0.037.
+ Cota sobreestimada: h(n) = n^1.2.
 
-
-sub -> n^1
-ajustada -> n ^1.09
-sobre-> n ^ 1.2
 
 
 ASCENDENTE: 
@@ -99,7 +121,11 @@ ASCENDENTE:
           32000       4275.000       0.133594       0.052520       0.016779
           64000       8840.000       0.138125       0.051017       0.015102
          128000      18912.000       0.147750       0.051272       0.014063
-sub -> n ^ 0.85
-ajustada -> n^1
-sobre-> n ^1.05
+	 
+Donde:
+
+ Cota subestimada: f(n) = n^0.85.
+ Cota ajustada:  g(n) = n^1. La cual tiene una constante que tiende a 0.050-0.052. 
+ Cota sobreestimada: h(n) = n^1.05.
+
 
