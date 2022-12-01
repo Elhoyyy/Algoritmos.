@@ -255,9 +255,9 @@ void print_result_ascendente(int n) {
         printf("   ");
     }
 
-    x = t / pow(n, 0.85);
-    y = t / n;
-    z = t /pow ( n , 1.05);
+    x = t / pow(n, 0.8);
+    y = t / (n*log(n));
+    z = t /pow ( n , 1.2);
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
@@ -292,7 +292,7 @@ void print_result_descendente(int n){
         printf("   ");
     }
     x = t / n;
-    y = t / pow(n, 1.09);
+    y = t / pow(n, 1.08);
     z = t / pow(n, 1.2);
 
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
