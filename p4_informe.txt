@@ -133,4 +133,12 @@ Donde:
 
 
 Conclusión:
-Podemos afirmar que la mejor inicializacion es la descendente seguida de la aleatoria y por último la ascendente.
+Podemos afirmar que la mejor inicializacion es la descendente seguida de la aleatoria y por último la ascendente. Siendo la cota obtenida menor, en los casos de
+descendete y aleatorio, que la cota teórica n*log(n) y en el caso de inicializacion ascendente siendo la cota obtenida igual a la teórica. 
+
+Comparandolo con la ordenación por inserción, la ordenacion por montículos es mas rápida para la inicialización descendente y aleatoria, cota n^2,
+pero en la inicializacion ascendente, con cota n^1, es más rápida ordenacion por inserción.
+
+Comparandolo con la ordenación rápida, para cualquier umbral, la ordenación rápida tiene menor tiempo de ejecución que la ordenación por monticulos.
+
+
