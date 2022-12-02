@@ -19,17 +19,16 @@ void ascendente(int v [], int n);
 void descendente(int v [], int n);
 
 void print_result_createascendente(int n);
-        void print_result_ascendente(int n);
-        void print_result_aleatorio(int n);
-        void print_result_descendente(int n);
+void print_result_ascendente(int n);
+void print_result_aleatorio(int n);
+void print_result_descendente(int n);
 
-        void hundir (monticulo *m, int i);
-        void crear_monticulo ( int vector[], int n, monticulo *m);
-        void test();
-        int eliminar_mayor(monticulo *m);
+void hundir (monticulo *m, int i);
+void crear_monticulo ( int vector[], int n, monticulo *m);
+void test();
+int eliminar_mayor(monticulo *m);
 
-
-                void inicializar_semilla() {
+void inicializar_semilla() {
     srand(time(NULL));
 }
 
