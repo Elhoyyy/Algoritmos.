@@ -8,7 +8,7 @@ DATE: 20/11/2022
 
 INTRODUCCIÓN:
 En esta práctica estudiaremos el tiempo de ejecución y realizaremos una comprabación empírica
-de la complejidad teórica de un algoritmo de ordenacion de montículos en tres casos distintos, cuando su inicializacion es ascendentes,descendente y aleatorio.
+de la complejidad teórica de un algoritmo de ordenacion de montículos en tres casos distintos, cuando su inicializacion es ascendente,descendente y aleatorio.
 
 Caracteristicas de la maquina:
 Los tiempos de ejecución resultantes de los algoritmos fueron realizados en el dispositivo con las siguientes características:
@@ -69,7 +69,7 @@ t(n)= es el tiempo de ejecución en microsegundos(µs) (Es en las demás funcion
  Cota sobreestimada: h(n) = n^1.2.
 
 
-Ahora calcularemos calcularemos el timepo de ejecución de la ordenacion de montículos ya sea inicializacion ascendente, descendente y aleatoria. Y a partir de los
+Ahora calcularemos calcularemos el tiempo de ejecución de la ordenacion de montículos ya sea inicializacion ascendente, descendente y aleatoria. Y a partir de los
 tiempos obtenidos mostramos en estas tablas las cotas ajustadas,sobrestimadas y subestimadas para cada inicializacion.
  
  ALEATORIA:
@@ -86,7 +86,7 @@ tiempos obtenidos mostramos en estas tablas las cotas ajustadas,sobrestimadas y 
 Donde:
 
  Cota subestimada: f(n) = n^1.
- Cota ajustada:  g(n) = n^1.09. La cual tiene una constante que tiende a 0.045-0.047.
+ Cota ajustada:  g(n) = n^1.09. La cual tiene una constante que tiende a 0.046.
  Cota sobreestimada: h(n) = n^1.2.
 
 
@@ -128,17 +128,16 @@ Donde:
 
  Cota subestimada: f(n) = n^0.8.
  Cota ajustada:  g(n) = / n* log ( n) ) . La cual tiene una constante que tiende a 0.009. También se observa una anomalía en el útlimo valor impreso
- por pantalla.
+ por pantalla. (n=128000)
  Cota sobreestimada: h(n) = n^1.2.
 
 
 Conclusión:
-Podemos afirmar que la mejor inicializacion es la descendente seguida de la aleatoria y por último la ascendente. Siendo la cota obtenida menor, en los casos de
-descendete y aleatorio, que la cota teórica n*log(n) y en el caso de inicializacion ascendente siendo la cota obtenida igual a la teórica. 
+Podemos afirmar que la mejor inicializacion es la descendente seguida de la aleatoria y por último la ascendente. Siendo la cota obtenida menor ( en los casos de
+descendente y aleatoria)  que la cota teórica n*log(n) y en el caso de inicializacion ascendente siendo la cota obtenida igual a la teórica. 
 
-Comparandolo con la ordenación por inserción, la ordenacion por montículos es mas rápida para la inicialización descendente y aleatoria, cota n^2,
-pero en la inicializacion ascendente, con cota n^1, es más rápida ordenacion por inserción.
+Comparando este algoritmo de ordenación por montículos con la ordenación por inserción, esta primera es mas rápida para la inicialización descendente y aleatoria, cota n^2 ( en el segundo algoritmo comentado ) , pero en la inicializacion ascendente, con cota n^1, es más rápida ordenacion por inserción.
 
-Comparandolo con la ordenación rápida, para cualquier umbral, la ordenación rápida tiene menor tiempo de ejecución que la ordenación por monticulos.
+Seguidamente, comparándolo con la ordenación rápida ( para cualquier umbral y cualquier inicialización), la ordenación rápida tiene menor tiempo de ejecución que la ordenación por monticulos.
 
 
