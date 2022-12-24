@@ -23,7 +23,7 @@ void print_result_aleatorio(int n);
 void print_result_ascendente(int n);
 void print_result_descendente(int n);
 void intercambiar(int vec[], int a, int b);
-void ord_shell(int v [], int n);
+
 void fusion(int v [], int izq,int der, int centro);
 void fusion_rec(int v [], int izq, int der);
 void orden_fusion(int v[],int n);
@@ -280,29 +280,6 @@ void intercambiar(int vec[], int a, int b){
     vec[a]=vec[b];
     vec[b]=aux;
 
-}
-
-void ord_shell(int v [], int n){
-    int incremento,i,j,tmp;
-    bool seguir;
-    incremento=n;
-    while(incremento!=1){
-        incremento = incremento/2;
-        for(i=incremento;i<n;i++){
-            tmp=v[i];
-            j=i;
-            seguir=true;
-            while(j-incremento>0&&seguir){
-                if(tmp<v[j-incremento]){
-                    v[j]=v[j-incremento];
-                    j=j-incremento;
-                }else{
-                    seguir=false;
-                }
-            }
-            v[j]=tmp;
-        }
-    }
 }
 
 void fusion(int v [], int izq,int der, int centro){
