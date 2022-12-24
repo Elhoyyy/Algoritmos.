@@ -18,15 +18,14 @@ void ord_ins(int v[], int n);
 void aleatorio(int v [], int n);
 void ascendente(int v [], int n);
 void descendente(int v [], int n);
-void test (int j);
-void print_result_aleatorio(int n, int j);
-void print_result_ascendente(int n, int j);
-void print_result_descendente(int n, int j);
-void ord_rapida(int v [], int n);
+void test ();
+void print_result_aleatorio(int n);
+void print_result_ascendente(int n);
+void print_result_descendente(int n);
 void intercambiar(int vec[], int a, int b);
-void rapida_aux(int v[ ], int izq, int der);
 void ord_shell(int v [], int n);
-void fusion(int v [], int centro,int izq, int der);
+void fusion(int v [], int izq,int der, int centro);
+void fusion_rec(int v [], int izq, int der);
 void orden_fusion(int v[],int n);
 
 
@@ -45,10 +44,9 @@ void ord_ins(int v[], int n){
 }
 
 int main(){
-    int j, n1,n2,n3,i;
+    int  n1,n2,n3,i;
     inicializar_semilla();
-    for(j =0; j<2; j++) {
-        test(j);
+        test();
         n1=500,n2=500,n3=500;
 
         printf("TABLAS:\n\n");
@@ -57,7 +55,7 @@ int main(){
 
         printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
         for (i = 0; i < 7; i++) {
-            print_result_aleatorio(n1, j);
+            print_result_aleatorio(n1);
             n1 = n1 * 2;
         }
         printf("\n");
@@ -66,7 +64,7 @@ int main(){
 
         printf("\t      n\t        t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
         for (i = 0; i < 7; i++) {
-            print_result_ascendente(n2, j);
+            print_result_ascendente(n2);
             n2 = n2 * 2;
         }
         printf("\n");
@@ -75,10 +73,10 @@ int main(){
 
         printf("\t      n\t         t(n)\t    t(n)/f(n)\t   t(n)/g(n)\t  t(n)/h(n)\t\n");
         for (i = 0; i < 7; i++) {
-            print_result_descendente(n3, j);
+            print_result_descendente(n3);
             n3 = n3 * 2;
         }
-    }
+
     return 0;
 }
 
@@ -102,18 +100,12 @@ void descendente(int v[], int n){
         j++;
     }
 }
-void test (int j) {
+void test () {
     int v1[20], v2[17], i;
     descendente(v1, 20);
-    if (j == 0) {
         printf("\nORDENACION POR INSERCION:\n");
 
-        printf("\nOrdenacion por insercion con inicializacion descendete:\n");
-    } else {
-        printf("\nORDENACION RAPIDA:\n");
-
-        printf("\nOrdenacion rapida con inicializacion descendente:\n");
-    }
+        printf("\nOrdenacion por insercion con inicializacion descendente:\n");
 
     for (i = 0; i < 20; i++) {
         printf(" %d ", v1[i]);
@@ -122,11 +114,8 @@ void test (int j) {
     printf("\n");
     printf("Vector ordenado: \n");
 
-    if (j == 0) {
         orden_fusion(v1, 20);
-    }else {
-        orden_fusion(v1, 20);
-    }
+
 
     for (i = 0; i < 20; i++) {
         printf(" %d ", v1[i]);
@@ -135,11 +124,7 @@ void test (int j) {
     printf("\n\n");
     aleatorio(v2, 17);
 
-    if (j == 0) {
         printf("\nOrdenacion por insercion con inicializacion aleatoria:\n");
-    } else {
-        printf("\nOrdenacion rapida con inicializacion aleatoria:\n");
-    }
 
     for (i = 0; i < 17; i++) {
         printf(" %d ", v2[i]);
@@ -147,11 +132,7 @@ void test (int j) {
 
     printf("\n");
 
-    if (j == 0) {
-        ord_ins(v2, 17);
-    }else {
-        ord_rapida(v2, 17);
-    }
+        orden_fusion(v2, 17);
 
     printf("Vector ordenado.\n ");
 
@@ -172,28 +153,21 @@ double microsegundos() {
     return (t.tv_usec + t.tv_sec * 1000000.0);
 }
 
-void print_result_aleatorio(int n,  int j){
+void print_result_aleatorio(int n){
     double t1, t2,ta, tb, t, x, y, z;
     int vector[n], k=1000, i;
     aleatorio(vector, n);
     t1 = microsegundos();
-    if(j==0){
         ord_ins(vector, n);
-    } else {
-        ord_rapida(vector, n);
-    }
+
     t2 = microsegundos();
     t = t2 - t1;
     if (t < 500) {
         ta = microsegundos();
         for ( i = 0; i < k; i++) {
             aleatorio(vector, n);
-
-            if(j==0){
                 ord_ins(vector, n);
-            } else {
-                ord_rapida(vector, n);
-            }
+
         }
         tb = microsegundos();
         t1 = (tb - ta);
@@ -210,15 +184,11 @@ void print_result_aleatorio(int n,  int j){
         printf("   ");
     }
 
-    if(j==0){
-        x = t / pow(n, 1.8);
-        y = t / pow(n, 2);
-        z = t / pow(n, 2.2);
-    } else {
+
         x = t /n;
         y = t / pow(n, 1.1);
         z = t / pow(n, 1.2);
-    }
+
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
@@ -227,16 +197,12 @@ void print_result_aleatorio(int n,  int j){
 
 
 
-void print_result_ascendente(int n, int j) {
+void print_result_ascendente(int n) {
     double t1, t2,ta, tb, t, x, y, z;
     int vector[n], k=1000, i;
     ascendente(vector, n);
     t1 = microsegundos();
-    if(j==0){
         ord_ins(vector, n);
-    } else {
-        ord_rapida(vector, n);
-    }
     t2 = microsegundos();
     t = t2 - t1;
     if (t < 500) {
@@ -244,11 +210,8 @@ void print_result_ascendente(int n, int j) {
         for ( i = 0; i < k; i++) {
             ascendente(vector, n);
 
-            if(j==0){
                 ord_ins(vector, n);
-            } else {
-                ord_rapida(vector, n);
-            }
+
         }
         tb = microsegundos();
         t1 = (tb - ta);
@@ -264,46 +227,33 @@ void print_result_ascendente(int n, int j) {
     } else {
         printf("   ");
     }
-    if(j==0){
         x = t / pow(n, 0.8);
         y = t /n ;
         z = t / pow(n, 1.2);
-    } else {
-        x = t / pow(n, 0.9);
-        y = t / pow(n, 1.05);
-        z = t / pow(n, 1.2);
-    }
+
     printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
 }
 
 
-void print_result_descendente(int n , int j){
-    double t1, t2,ta, tb, t, x, y, z;
-    int vector[n], k=1000, i;
+void print_result_descendente(int n ) {
+    double t1, t2, ta, tb, t, x, y, z;
+    int vector[n], k = 1000, i;
     descendente(vector, n);
     t1 = microsegundos();
-    if(j==0){
-        ord_ins(vector, n);
-    } else {
-        ord_rapida(vector, n);
-    }
+    ord_ins(vector, n);
     t2 = microsegundos();
     t = t2 - t1;
     if (t < 500) {
         ta = microsegundos();
-        for ( i = 0; i < k; i++) {
+        for (i = 0; i < k; i++) {
             descendente(vector, n);
-            if(j==0){
-                ord_ins(vector, n);
-            } else {
-                ord_rapida(vector, n);
-            }
+            ord_ins(vector, n);
         }
         tb = microsegundos();
         t1 = (tb - ta);
         ta = microsegundos();
-        for ( i = 0; i < k; i++) {
+        for (i = 0; i < k; i++) {
             descendente(vector, n);
         }
         tb = microsegundos();
@@ -313,49 +263,16 @@ void print_result_descendente(int n , int j){
 
     } else {
         printf("   ");
-    }
-    if(j==0){
+
         x = t / pow(n, 1.8);
         y = t / pow(n, 2);
         z = t / pow(n, 2.2);
-    } else {
-        x = t / pow(n, 0.9);
-        y = t / pow(n, 1.04);
-        z = t / pow(n, 1.2);
-    }
-    printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
-}
-
-void rapida_aux(int v[ ], int izq, int der){
-    int x,pivote,i,j;
-
-    if ((izq+UMBRAL)<= der ){
-        x=rand() % (der-izq+1)+izq;
-        pivote=v[x];
-
-        intercambiar(v, izq, x);
-        i=izq+1;
-        j=der;
-        while(i<=j) {
-            while (i <= der && v[i] < pivote) {
-                i++;
-            }
-            while (v[j] > pivote) {
-                j--;
-            }
-            if (i <= j) {
-                intercambiar(v, i, j);
-                i++;
-                j--;
-            }
-        }
-        intercambiar(v, izq, j);
-        rapida_aux(v, izq, j-1);
-        rapida_aux(v, j+1, der);
+        printf("%12d%15.3f%15.6f%15.6f%15.6f\n", n, t, x, y, z);
 
     }
 }
+
 
 void intercambiar(int vec[], int a, int b){
     int aux;
@@ -363,11 +280,6 @@ void intercambiar(int vec[], int a, int b){
     vec[a]=vec[b];
     vec[b]=aux;
 
-}
-void ord_rapida(int v [], int n) {
-    rapida_aux(v, 0, n-1);
-    if (UMBRAL > 1)
-        ord_ins(v, n);
 }
 
 void ord_shell(int v [], int n){
@@ -393,8 +305,8 @@ void ord_shell(int v [], int n){
     }
 }
 
-void fusion(int v [], int centro,int izq, int der){
-    {
+void fusion(int v [], int izq,int der, int centro){
+
         int aux[der];
         int i=izq;
         int j=centro+1;
@@ -416,13 +328,13 @@ void fusion(int v [], int centro,int izq, int der){
         }
         for(k=izq; k<=der; k++)
             v[k] = aux[k];
-    }
+
 
 }
 
 void fusion_rec(int v [], int izq, int der){
     int centro;
-    if(izq+UMBRAL<der){
+    if((izq+UMBRAL)<=der){
         centro=(izq+der)/2;
         fusion_rec(v,izq,centro);
         fusion_rec(v,centro+1,der);
@@ -433,5 +345,5 @@ void fusion_rec(int v [], int izq, int der){
 }
 
 void orden_fusion(int v[],int n){
-    fusion_rec(v,0,n-1);
+    fusion_rec(v,0,n);
 }
