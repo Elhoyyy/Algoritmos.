@@ -24,10 +24,6 @@ void print_result_ascendente(int n);
 void print_result_descendente(int n);
 void intercambiar(int vec[], int a, int b);
 void ord_shell(int v [], int n);
-void fusion(int v [], int izq,int der, int centro);
-void fusion_rec(int v [], int izq, int der);
-void orden_fusion(int v[],int n);
-
 
 
 void ord_ins(int v[], int n){
