@@ -5,7 +5,7 @@ AUTOR 2: Daniel Pérez Mosquera LOGIN 2: daniel.pmosquera
 GROUP: 1.1
 DATE: 20/10/2022
 */
-a
+
 #include <stdio.h>
 #include <time.h>
 #include <sys/time.h>
