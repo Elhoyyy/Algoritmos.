@@ -9,6 +9,8 @@ ALEATORIA:
           16000       2251.000       0.140687       0.020297       0.007709
           32000       5581.000       0.174406       0.021904       0.007763
           
+	  anomalia en n = 500
+	  
           subestimada: n
           ajustada:pow(n,1.2)
           sobrestimada:pow(n,1.3)
